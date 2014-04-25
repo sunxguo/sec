@@ -1,0 +1,40 @@
+@charset "utf-8";
+.shopping{
+	width: 960px;
+	min-height: 406px;
+	position: relative; 
+	overflow: auto;
+	float:right;
+	margin-top:19.5px;
+}
+.shopping .filter{
+	width: 960px;
+	
+}
+.shopping .filter .filter-header{
+	width: 960px;
+	height:30px;
+	line-height:30px;
+	background-color:#f7f7f7;
+}
+.shopping .filter .filter-body{
+	width: 960px;
+}
+.shopping .filter .filter-body .filter-item{
+	display:block;
+	padding-left:60px;
+	width: 960px;
+	border-bottom:1px dashed #CCC;
+}
+.shopping .filter .filter-body .filter-item .param{
+	width:80px;
+	display:inline-block;
+}
+.shopping .filter .filter-body .filter-item dl{
+	width:600px;
+	display:inline-block;
+}
+.shopping .filter .filter-body .filter-item dl dd{
+	width:50px;
+	float:left;
+}

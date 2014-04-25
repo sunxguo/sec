@@ -13,6 +13,7 @@
 	<script src="/assets/js/tools.js" type="text/javascript"></script>
 </head>
 <body>
+	<div class="modal-backdrop" id="backdrop"></div>
     <div class="header">
 		<div class="top clearfix">
 			<div class="logo"><a href="/"><img src="/assets/img/logo.png"/></a></div>
@@ -35,16 +36,16 @@
 			<div class="menu">
 				<ul>
 					<li><a href="http://zl.xuechengw.com" target="_blank">学城资料</a></li>
-					<li><a>登录</a> / <a>注册</a></li>
-					<div class="login-panel">
+					<li><a onclick="showLogin()">登录</a> / <a>注册</a></li>
+					<div class="login-panel" id="login-panel">
 						<div class="login-head">
 							<h3>登录与注册</h3>
-							<a class="close">X</a>
+							<a class="close" onclick="hideLogin()">x</a>
 						</div>
 						<div class="login-main">
 							<dl>
 								<dd>
-									<input type="text" id="miniLogin_username" name="miniLogin_username" placeholder="请输入邮箱/手机号码/小米ID" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,})" autocomplete="off"/><span class="msgTips"></span>
+									<input type="text" id="miniLogin_username" name="miniLogin_username" placeholder="请输入邮箱/手机号码/学城ID" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,})" autocomplete="off"/><span class="msgTips"></span>
 								</dd>
 								<dd>
 									<input type="password" id="miniLogin_pwd" name="miniLogin_pwd" placeholder="请输入密码" data-rule="" /><span class="msgTips"></span>
@@ -54,14 +55,9 @@
 								<label for="auto"><input type="checkbox" id="auto" name="auto" value="true" /><span>两周内自动登录</span></label>
 								<p><a href="javascript:;" onclick="window.open('https://account.xiaomi.com/pass/forgetPassword')">忘记密码？</a> </p>
 							</div>
-							<p class="miniLogin_btn cfl">
+							<div class="miniLogin_btn cfl">
 								<input type="submit" class="no_bg" value="立即登录" />
-								<a href="javascript:;" onclick="window.open('https://account.xiaomi.com/pass/register');">注册</a>
-							</p>
-							<div class="miniLogin_third">
-								<span>用其他帐户登录：</span>
-								<a class="qq" id="miniLogin_third_qq" href="#" target="_top">QQ</a>
-								<a class="sina" id="miniLogin_third_sina" href="#" target="_top">新浪</a>        
+								<a href="" onclick="">注册</a>
 							</div>
 						</div>
 					</div>

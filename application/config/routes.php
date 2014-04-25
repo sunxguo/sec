@@ -37,6 +37,8 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+$route['shopping'] = "cshopping";
+
 
 $route['default_controller'] = "home";
 $route['404_override'] = '';

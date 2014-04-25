@@ -1,4 +1,16 @@
 @charset "utf-8";
+.modal-backdrop {
+	opacity: .2;
+	filter: alpha(opacity=20);
+	position: fixed!important;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040;
+	background-color: #000;
+	display:none;
+}
 .header .top .logo {
 	width:330px;
 	float:left;
@@ -90,14 +102,14 @@
 	-moz-background-clip: padding-box;
 	background-clip: padding-box;
 	outline: none;
+	display:none;
 }
 .header .top .menu .login-panel .login-head{
-	padding: 9px 15px;
+	padding: 5px 15px;
 	border-bottom: 1px solid #eee;
 }
 .header .top .menu .login-panel .login-head h3{
 	margin: 0;
-	line-height: 30px;
 	font-size:16px;
 	display:inline-block;
 }
@@ -107,7 +119,6 @@
 	float: right;
 	font-size: 20px;
 	font-weight: bold;
-	line-height: 20px;
 	color: #000;
 	text-shadow: 0 1px 0 #fff;
 	opacity: .2;
@@ -133,6 +144,65 @@
 	height: 35px;
 	line-height: 35px;
 	text-indent: 10px;
+}
+.header .top .menu .login-panel .login-main .miniLogin_auto{
+	width: 71%;
+}
+.header .top .menu .login-panel .login-main .miniLogin_auto label {
+	float: left;
+}
+.header .top .menu .login-panel .login-main .miniLogin_auto label input {
+	vertical-align: middle;
+	margin-right: 3px;
+}
+.header .top .menu .login-panel .login-main .miniLogin_auto p {
+	float: right;
+	text-align: right;
+}
+.header .top .menu .login-panel .login-main .miniLogin_btn {
+	width: 71%;
+	padding: 20px 0;
+}
+.miniLogin_btn input {
+	float: left;
+	color: #fff;
+	background: #dd4250;
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(#ed5466,0),color-stop(#dd4250,1));
+	background: -webkit-linear-gradient(top,#ed5466 0,#dd4250 100%);
+	background: -moz-linear-gradient(top,#ed5466 0,#dd4250 100%);
+	background: -o-linear-gradient(top,#ed5466 0,#dd4250 100%);
+	background: linear-gradient(top,#ed5466 0,#dd4250 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed5466',endColorstr='#dd4250',GradientType=0);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #dd4250;
+}
+.miniLogin_btn a {
+	float: right;
+	color: #6a6a6a;
+	background: #ddd;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#f7f7f7',GradientType=0);
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(#fff,0),color-stop(#f7f7f7,1));
+	background: -webkit-linear-gradient(top,#fff 0,#f7f7f7 100%);
+	background: -moz-linear-gradient(top,#fff 0,#f7f7f7 100%);
+	background: -o-linear-gradient(top,#fff 0,#f7f7f7 100%);
+	background: linear-gradient(top,#fff 0,#f7f7f7 100%);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #e1e1e1;
+}
+.miniLogin_btn input, .miniLogin_btn a {
+	width: 46%;
+	display: block;
+	height: 33px;
+	line-height: 33px;
+	font-size: 14px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+	margin:20px 0 50px 0;
 }
 .header .top .miniCart {
 	width:110px;

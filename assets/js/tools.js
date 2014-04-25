@@ -22,8 +22,18 @@ $(document).ready(function(){
 			$(this).children(".subCat").hide();
 			$(this).children(".showPos").hide();
 		});
+		$('#backdrop').click(function(){
+			hideLogin();
+		});
 	});	
-	
+	function showLogin(){
+		$('#login-panel').show(200);
+		$('#backdrop').show();
+	}
+	function hideLogin(){
+		$('#login-panel').hide(200);
+		$('#backdrop').hide();
+	}
 	//让指定的DIV始终显示在屏幕正中间   
 	function setDivCenter(divId){  
 		var top = ($(window).height() - $(divId).height())/2;   
