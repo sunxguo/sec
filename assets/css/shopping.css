@@ -1,40 +1,98 @@
 @charset "utf-8";
 .shopping{
-	width: 960px;
+	width: 950px;
 	min-height: 406px;
 	position: relative; 
-	overflow: auto;
+	overflow:hidden;
 	float:right;
 	margin-top:19.5px;
 }
-.shopping .filter{
-	width: 960px;
-	
+.shopping .filter {
+	border:1px solid #CCC;
 }
 .shopping .filter .filter-header{
-	width: 960px;
-	height:30px;
-	line-height:30px;
+	height:40px;
+	line-height:40px;
 	background-color:#f7f7f7;
+	padding-left:20px;
 }
-.shopping .filter .filter-body{
-	width: 960px;
+.shopping .filter .filter-header .cat{
+	color:#dd4250;
 }
 .shopping .filter .filter-body .filter-item{
-	display:block;
 	padding-left:60px;
-	width: 960px;
-	border-bottom:1px dashed #CCC;
+	border-top:1px dashed #CCC;
 }
 .shopping .filter .filter-body .filter-item .param{
 	width:80px;
-	display:inline-block;
+	margin-top:5px;
+	float:left;
 }
 .shopping .filter .filter-body .filter-item dl{
 	width:600px;
-	display:inline-block;
+	float:left;
 }
 .shopping .filter .filter-body .filter-item dl dd{
 	width:50px;
 	float:left;
+	height:30px;
+	line-height:30px;
+}
+.shopping .filter .filter-body .filter-item dl dd a{
+	color:#dd4250;
+	display:inline-block;
+	width:50px;
+	height:25px;
+	line-height:25px;
+	font-size:14px;
+	text-align:center;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+}
+.shopping .filter .filter-body .filter-item dl dd a:hover{
+	background-color:#dd4250;
+	color:white;
+	cursor:pointer;
+}
+.shopping .products-header{
+	border:1px solid #CCC;
+	margin-top:10px;
+	padding-left:20px;
+}
+.shopping .products-header .order{
+	float:left;
+	width:500px;
+}
+.shopping .products-header .order ul{
+	display:inline-block;
+}
+.shopping .products-header .order ul .price{
+	width:50px;
+}
+.shopping .products-header .order ul .time{
+	width:80px;
+}
+.shopping .products-header .order ul li{
+	float:left;
+	text-align:center;
+	color:#dd4250;
+	height:25px;
+	line-height:25px;
+	font-size:14px;
+	text-align:center;
+	border:1px solid #dd4250;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
+	margin-right:10px;
+}
+.shopping .products-header .order ul li:hover{
+	background-color:#dd4250;
+	color:white;
+	cursor:pointer;
+}
+.shopping .products-header .page{
+	float:right;
+	width:200px;
 }
