@@ -30,8 +30,11 @@
 				</form>
 			</div>
 			<div class="miniCart" id="miniCart">
-				<span class="cart icon-common"></span>
+				<span class="cart-bt icon-common"></span>
 				购物车
+				<div class="mini-cart-list" id="miniCartList">
+					<div class="loading">数据加载中，请稍后...</div>
+				</div>
 			</div>
 			<div class="menu">
 				<ul>
@@ -64,6 +67,7 @@
 				</ul>
 			</div>
 		</div>
+		<?php if($showNav):?>
 		<div class="nav">
 			<div class="all-cat"><a>全部商品分类</a></div>
 			<div class="links">
@@ -75,8 +79,10 @@
 				</ul>
 			</div>
 		</div>
+		<?php endif;?>
     </div>
-	<div class="main">
+	<div class="main clearfix">
+		<?php if($showSideCat):?>
 		<div class="side-cat">
 			<ul>
 			<?php for($i=0;$i<10;$i++):?>
@@ -109,4 +115,6 @@
 				</li>
 			<?php endfor;?>
 			</ul>
+		<?php //require("product-side-ad.php"); ?>
 		</div>
+		<?php endif;?>

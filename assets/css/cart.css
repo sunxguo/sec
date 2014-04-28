@@ -1,0 +1,82 @@
+@charset "utf-8";
+.cart{
+	width: 100%;
+	min-height: 406px;
+	position: relative; 
+	overflow:hidden;
+	margin-top:19.5px;
+}
+.cart .cart-header h2{
+	width:200px;
+	display:inline-block;
+}
+.cart .products-lists{
+	margin-top:20px;
+	border: 1px solid #ddd;
+	border-top:2px solid #999;
+}
+.cart .products-lists .lists-body{
+	background-color:rgb(255,253,238);
+	border-top:1px solid #ddd;
+	font-size:14px;
+	padding-top:10px;
+	height:60px;
+	line-height:60px;
+}
+.cart .products-lists dl dd{
+	display:inline-block;
+}
+.cart .products-lists .lists-header{
+	background-color:#f7f7f7;
+	height:30px;
+	line-height:30px;
+}
+.cart .products-lists .lists-header dd{
+	text-align:center;
+	border-right:1px solid #dfdfdf;
+	height:25px;
+	line-height:25px;
+}
+.cart .products-lists .product a{
+	margin-left:20px;
+}
+.cart .products-lists .product a div{
+	float:left;
+	width:450px;
+	margin-left:10px;
+	line-height:20px;
+	padding-top:15px;
+	height:40px;
+    overflow: hidden; 
+}
+.cart .products-lists .lists-body .product img{
+	float:left;
+	width:80px;
+	margin-left:20px;
+}
+.cart .products-lists .product{
+	width:600px;
+}
+.cart .products-lists .price{
+	width:150px;
+	text-align:center;
+}
+.cart .products-lists .discount{
+	width:120px;
+	text-align:center;
+}
+.cart .products-lists .new{
+	width:130px;
+	text-align:center;
+}
+.cart .products-lists .oper{
+	width:150px;
+	text-align:center;
+	border-right:none !important;
+}
+.cart .products-lists .lists-footer{
+	background-color:#f7f7f7;
+	height:40px;
+	line-height:40px;
+	padding-right:50px;
+}

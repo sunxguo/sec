@@ -38,6 +38,10 @@
 |
 */
 $route['shopping'] = "cshopping";
+$route['shopping/product'] = "cshopping/product";
+$route['shopping/cart'] = "cshopping/cart";
+
+$route['uc'] = "cuc";
 
 
 $route['default_controller'] = "home";

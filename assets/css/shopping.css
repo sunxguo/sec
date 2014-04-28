@@ -58,14 +58,22 @@
 .shopping .products-header{
 	border:1px solid #CCC;
 	margin-top:10px;
-	padding-left:20px;
+	padding:5px 5px 5px 20px;
+}
+.shopping .products-footer{
+	border:none !important;
 }
 .shopping .products-header .order{
 	float:left;
 	width:500px;
 }
-.shopping .products-header .order ul{
+.shopping .products-header .order span{
 	display:inline-block;
+	margin-top:5px;
+	float:left;
+}
+.shopping .products-header .order ul{
+	float:left;
 }
 .shopping .products-header .order ul .price{
 	width:50px;
@@ -94,5 +102,68 @@
 }
 .shopping .products-header .page{
 	float:right;
-	width:200px;
+	width:280px;
+}
+.shopping .products-header .order ul,.shopping .products-header .page{
+	margin-top:5px;
+}
+.shopping .products-header .page{
+	font-size:14px;
+}
+.shopping .products-list .lists .box{
+	width: 220px;
+	height: 210px;
+	float:left;
+	border: 1px #e8e8e8 solid;
+	padding: 2px;
+	position: relative;
+	margin: 0 11px 21px 0;
+	background-color: #fff;
+	position:relative;
+}
+.shopping .products-list .lists .box:hover{
+	box-shadow: 0 0 3px #dd4250;
+	-webkit-box-shadow: 0 0 3px #dd4250;
+	-moz-box-shadow: 0 0 3px #dd4250;
+	border: 1px #ed5466 solid;
+}
+.shopping .products-list .lists .box a img{
+	width: 220px;
+	height: 124px;
+}
+.shopping .products-list .lists .box a  .title{
+	font-size:12px;
+	display:block;
+	width:215px;
+	white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+}
+.shopping .products-list .lists .box a  .title:hover{
+	color:#dd4250;
+}
+.shopping .products-list .lists .box  .price{
+	color:#dd4250;
+}
+.shopping .products-list .lists .box  .oper{
+	width:205px;
+	margin:5px auto;
+}
+.shopping .products-list .lists .box  .oper input{
+	width:100px;
+	height:25px;
+	line-height:25px;
+	font:12px Microsoft Yahei;
+	border:none;
+	cursor:pointer;
+	background-color:#FF7373;
+	color:white;
+	outline:none;
+	-moz-border-radius: 3px;      /* Gecko browsers */
+    -webkit-border-radius: 3px;   /* Webkit browsers */
+    border-radius:3px;            /* W3C syntax */
+}
+.shopping .products-list .lists .box  .oper input:hover{
+	background-color:#FF4C4C;
+	color:white;
 }

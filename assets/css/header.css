@@ -217,11 +217,33 @@
 	text-align: center;
 	cursor:pointer;
 }
-.header .top .miniCart  .cart{
+.header .top .miniCart:hover {
+	background: #fff;
+	border-color:#ededed;
+	border-bottom: none;
+}
+.header .top .miniCart  .cart-bt{
 	display:inline-block;
 	width: 16px;
 	height: 13px;
 	background-position: -294px -53px;
+}
+.mini-cart-list {
+	display:none;
+	width: 327px;
+	position: absolute;
+	top: 50px;
+	right: 36px;
+	border: 3px solid #ededed;
+	border-radius: 5px 0 5px 5px;
+	background: #fff;
+	text-align: left;
+	font-size: 12px;
+}
+.mini-cart-list .loading {
+	padding: 20px;
+	color: #999;
+	text-align: center;
 }
 .header .nav{
 	height: 45px;

@@ -96,14 +96,15 @@ ul li{
 	line-height: 25px;
 	font-size:14px;
 	cursor:pointer;
-	border:1px solid rgb(254,119,0);
-	color:rgb(254,119,0);
+	border:1px solid #2d9dd5;
+	color:#2d9dd5;
+	outline:none;
 	-moz-border-radius: 5px;      /* Gecko browsers */
     -webkit-border-radius: 5px;   /* Webkit browsers */
     border-radius:5px;            /* W3C syntax */
 }
 .page_bt:hover{
-	background-color:rgb(254,119,0);
+	background-color:#2d9dd5;
 	color:white;
 }
 .no{
@@ -117,6 +118,7 @@ ul li{
 	cursor:not-allowed;
 	border:1px solid #CCC;
 	color:#CCC;
+	outline:none;
 	-moz-border-radius: 5px;      /* Gecko browsers */
     -webkit-border-radius: 5px;   /* Webkit browsers */
     border-radius:5px;            /* W3C syntax */
@@ -127,7 +129,9 @@ ul li{
 	line-height:30px;
 	cursor:pointer;
 	border:1px solid #2d9dd5;
+	background-color:white;
 	color:#2d9dd5;
+	outline:none;
 	-moz-border-radius: 5px;      /* Gecko browsers */
     -webkit-border-radius: 5px;   /* Webkit browsers */
     border-radius:5px;            /* W3C syntax */
@@ -142,7 +146,9 @@ ul li{
 	line-height:30px;
 	cursor:pointer;
 	border:1px solid rgb(200,50,50);
+	background-color:white;
 	color:rgb(200,50,50);
+	outline:none;
 	-moz-border-radius: 5px;      /* Gecko browsers */
     -webkit-border-radius: 5px;   /* Webkit browsers */
     border-radius:5px;            /* W3C syntax */
@@ -150,6 +156,36 @@ ul li{
 .a_bt_err:hover{
 	background-color:rgb(200,50,50);
 	color:white;
+}
+.dots {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 20px;
+}
+.dots li {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin: 0 4px;
+	text-indent: -999em;
+	border: 2px solid rgba(221,66,80,.8);
+	border-radius: 6px;
+	cursor: pointer;
+	opacity: .4;
+	-webkit-transition: background .5s, opacity .5s;
+	-moz-transition: background .5s, opacity .5s;
+	transition: background .5s, opacity .5s;
+}
+.dots li.active {
+	background: rgba(221,66,80,.9);
+	opacity: 1;
+}
+.f_l{
+	float:left;
+}
+.f_r{
+	float:right;
 }
 .mg_t10{
 	margin-top:10px;
@@ -169,6 +205,18 @@ ul li{
 .mr_t80 {
 	margin-top: 80px;
 }
+.mr_r50 {
+	margin-top: 50px;
+}
+.pd_l20 {
+	padding-left: 20px;
+}
+.width100{
+	width:100px;
+}
+.width150{
+	width:150px;
+}
 .width200{
 	width:200px;
 }
@@ -183,6 +231,9 @@ ul li{
 }
 .color-red2{
 	color:#FF99B2;
+}
+.color-bule{
+	color: #005ea7;
 }
 .dont_display{
 	display:none;
@@ -214,4 +265,9 @@ ul li{
 .new_head .close:hover{
 	color:white;
 	background-color:rgb(240,20,20);
+}
+.radius4{
+	-webkit-border-radius: 4px 4px 4px 4px;
+	-moz-border-radius: 4px 4px 4px 4px;
+	border-radius: 4px 4px 4px 4px;
 }

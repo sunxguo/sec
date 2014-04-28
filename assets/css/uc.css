@@ -1,0 +1,88 @@
+.uc{
+	width: 100%;
+	min-height: 406px;
+	position: relative; 
+	overflow:hidden;
+	margin-top:19.5px;
+}
+.uc .uc-left{
+	width: 210px;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: white;
+	border:1px solid #CCC;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.8);
+	float:left;
+}
+.uc .uc-left .l1 {
+	background-color: rgb(248, 247, 248);
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	padding-left: 20px;
+}
+.uc .uc-left .cur {
+	background-color: rgb(64, 162, 215);
+	color: white;
+}
+.uc .uc-left li {
+	height: 40px;
+	line-height: 40px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	padding-left: 40px;
+	cursor: pointer;
+}
+.uc .uc-left li .new_orders_num {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	background-color: #dc0000;
+	color: white;
+	margin-left: 50px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align: center;
+}
+.uc .uc-main{
+	width:900px;
+	float:left;
+	margin:20px;
+}
+.uc .uc-main .uc-header{
+	height:50px;
+	line-height:50px;
+}
+.uc .uc-main .uc-body{
+	margin-top:50px;
+}
+.uc .uc-main .uc-body .avatar{
+	width:104px;
+	height:104px;
+	padding:2px;
+	background:white;
+	border: 1px solid #dcdcdc;
+	-moz-box-shadow: 0px 1px 2px #CDCDCD;
+	-webkit-box-shadow: 0px 1px 2px #CDCDCD;
+	box-shadow: 0px 1px 2px #CDCDCD;
+	-moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+	float:left;
+}
+.uc .uc-main .uc-body .avatar img{
+	width:100px;
+	height:100px;
+	margin:2px 2px;
+}
+.uc .uc-main .uc-body .message{
+	width:700px;
+	float:left;
+	margin-left:50px;
+}

@@ -1,0 +1,8 @@
+@charset "utf-8";
+.product-side-ad{
+	position: absolute;
+	z-index: 1000;
+	width: 230px;
+	color: #333;
+	border:1px solid #CCC;
+}

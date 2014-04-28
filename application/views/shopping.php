@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="/assets/css/shopping.css" type="text/css">
 <div class="shopping">
-	<div class="filter">
+	<div class="filter radius4">
 		<div class="filter-header"><span class="cat">平板电视</span>-商品筛选</div>
 		<ul class="filter-body">
 			<li class="filter-item clearfix">
@@ -21,25 +21,43 @@
 			</li>
 		</ul>
 	</div>
-	<div class="products-header clearfix">
+	<div class="products-header clearfix radius4">
 		<div class="order">
-			排序：
+			<span>排序：</span>
 			<ul>
-				<li class="price">价格</li>
+				<li class="price">价格 ↑</li>
+				<li class="price">价格 ↓</li>
 				<li class="time">发布时间</li>
 			</ul>
 		</div>
 		<div class="page">
 			1/12页
-			<a>上一页</a>
-			<a>下一页</a>
+			<a class="no">上一页</a>
+			<a class="page_bt ">下一页</a>
 		</div>
 	</div>
-	<div class="products-list">
-		<ul>
-			<li>
-				
+	<div class="products-list clearfix">
+		<ul class="lists">
+		<?php for($i=0;$i<10;$i++):?>
+			<li class="box">
+				<a href="/shopping/product" title="苹果（APPLE）iPhone 5s 32G版 4G手机（深空灰色）">
+					<img src="/assets/img/product/tv.jpg">
+					<span class="title">苹果（APPLE）iPhone 5s 32G版 4G手机（深空灰色）</span>
+				</a>
+				<span class="price">￥4999</span>
+				<div class="oper">
+					<input type="button" value="加入购物车"/>
+					<input type="button" value="立即交易" onclick="confirmDeal()"/>
+				</div>
 			</li>
+		<?php endfor;?>
 		</ul>
+	</div>
+	<div class="products-header clearfix products-footer">
+		<div class="page">
+			1/12页
+			<a class="no">上一页</a>
+			<a class="page_bt ">下一页</a>
+		</div>
 	</div>
 </div>

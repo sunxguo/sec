@@ -25,7 +25,15 @@ $(document).ready(function(){
 		$('#backdrop').click(function(){
 			hideLogin();
 		});
-	});	
+		$("#miniCart").mouseover(function(){
+			$(this).addClass("mini-cart-on");
+			$("#miniCartList").delay(100).show(300);
+		});
+		$("#miniCart").mouseout(function(){
+			$(this).removeClass("mini-cart-on");
+			$("#miniCartList").delay(1000).hide(300);
+		});
+});	
 	function showLogin(){
 		$('#login-panel').show(200);
 		$('#backdrop').show();
@@ -33,6 +41,12 @@ $(document).ready(function(){
 	function hideLogin(){
 		$('#login-panel').hide(200);
 		$('#backdrop').hide();
+	}
+	function confirmDeal(){
+		if(confirm("您将遵守诚信协议，并和卖家线下交易？")){
+			//ajax生成订单
+			
+		}
 	}
 	//让指定的DIV始终显示在屏幕正中间   
 	function setDivCenter(divId){  
