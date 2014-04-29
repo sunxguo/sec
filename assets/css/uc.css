@@ -23,6 +23,12 @@
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	padding-left: 20px;
+	color:#dd4250;
+}
+.uc .uc-left .l1:hover{
+	color:#dd4250 !important;
+	background-color: rgb(248, 247, 248) !important;
+	cursor:default  !important;
 }
 .uc .uc-left .cur {
 	background-color: rgb(64, 162, 215);
@@ -36,6 +42,10 @@
 	list-style: none;
 	padding-left: 40px;
 	cursor: pointer;
+}
+.uc .uc-left li:hover {
+	background-color:#6AB7E0;
+	color:white;
 }
 .uc .uc-left li .new_orders_num {
 	display: inline-block;
@@ -51,16 +61,16 @@
 	text-align: center;
 }
 .uc .uc-main{
-	width:900px;
+	width:940px;
 	float:left;
-	margin:20px;
+	margin:20px 0 0 20px;
 }
 .uc .uc-main .uc-header{
 	height:50px;
 	line-height:50px;
 }
 .uc .uc-main .uc-body{
-	margin-top:50px;
+	margin:50px 0 0 180px;
 }
 .uc .uc-main .uc-body .avatar{
 	width:104px;
@@ -82,7 +92,36 @@
 	margin:2px 2px;
 }
 .uc .uc-main .uc-body .message{
-	width:700px;
+	width:400px;
 	float:left;
 	margin-left:50px;
+}
+.uc .uc-main .uc-body .message .welcome{
+	margin-bottom:30px;
+	font-size: 14px;
+	padding: 0 20px;
+}
+.uc .uc-main .uc-body .message .welcome .username{
+	color: rgb(20,116,173);
+	font-size: 17px;
+	margin-right:20px;
+}
+.uc .uc-main .uc-body .message ul {
+	background-color: rgb(249,249,249);
+	font-size: 15px;
+	padding: 5px 20px;
+}
+.uc .uc-main .uc-body .message ul li {
+	border-bottom: 1px solid rgb(226, 255, 195);
+	height: 30px;
+	line-height: 30px;
+}
+.uc .uc-main .uc-body .message a {
+	color: rgb(0,94,167);
+	cursor: pointer;
+	display: inline-block;
+	margin-right: 10px;
+}
+.uc .uc-main .uc-body .message a:hover {
+color: rgb(252, 37, 45);
 }

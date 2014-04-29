@@ -5,15 +5,17 @@
 		<div class="uc-header">
 			<h3>我的学城</h3>
 		</div>
-		<div class="uc-body">
+		<div class="uc-body clearfix">
 			<div class="avatar">
 				<img src="/assets/img/uc/avatar.png"/>
 			</div>
 			<div class="message">
-				<ul>
-					<li>交易中</li>
-					<li>学友消息</li>
-					<li>系统消息</li>
+				<div class="welcome">
+					<span class="username"><a href="">郝贱</a></span>欢迎您！
+				</div>
+				<ul class="clearfix">
+					<li>订单提醒：<a href="/">交易中（0）</a></li>
+					<li>消息：<a href="/">学友消息（0）</a><a href="/">系统消息（0）</a></li>
 				</ul>
 			</div>
 		</div>
