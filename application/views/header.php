@@ -1,3 +1,7 @@
+<?php
+	@session_start(); 
+	$this->load->helper("base");
+?>
 <!doctype html>
 <html>
 <head>
@@ -39,7 +43,16 @@
 			<div class="menu">
 				<ul>
 					<li><a href="http://zl.xuechengw.com" target="_blank">学城资料</a></li>
-					<li><a onclick="showLogin()">登录</a> / <a>注册</a></li>
+					
+					<li>
+					<?php if(!checkLogin()){?>
+						<a onclick="showLogin()">登录</a> / 
+						<a href="/uc/register" target="_blank">注册</a>
+					<?php }else{?>
+						欢迎您 <a href="/uc"><?=$_SESSION["name"]?></a>
+						<a href="javascript: void();" onclick="logout();">[退出]</a>
+					<?php }?>
+					</li>
 					<div class="login-panel" id="login-panel">
 						<div class="login-head">
 							<h3>登录与注册</h3>
@@ -48,19 +61,19 @@
 						<div class="login-main">
 							<dl>
 								<dd>
-									<input type="text" id="miniLogin_username" name="miniLogin_username" placeholder="请输入邮箱/手机号码/学城ID" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,})" autocomplete="off"/><span class="msgTips"></span>
+									<input type="text" id="miniLogin_username" name="miniLogin_username" placeholder="请输入邮箱/手机号码" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,})" autocomplete="off"/><span class="msgTips"></span>
 								</dd>
 								<dd>
 									<input type="password" id="miniLogin_pwd" name="miniLogin_pwd" placeholder="请输入密码" data-rule="" /><span class="msgTips"></span>
 								</dd>
 							</dl>
-							<div class="miniLogin_auto cfl">
-								<label for="auto"><input type="checkbox" id="auto" name="auto" value="true" /><span>两周内自动登录</span></label>
-								<p><a href="javascript:;" onclick="window.open('https://account.xiaomi.com/pass/forgetPassword')">忘记密码？</a> </p>
+							<div class="miniLogin_auto cfl clearfix">
+								<label for="auto"><input type="checkbox" id="auto" name="auto" value="true" /><span>自动登录</span></label>
+								<p><a href="javascript:;" onclick="window.open('')">忘记密码？</a> </p>
 							</div>
-							<div class="miniLogin_btn cfl">
-								<input type="submit" class="no_bg" value="立即登录" />
-								<a href="" onclick="">注册</a>
+							<div class="miniLogin_btn cfl clearfix">
+								<input type="submit" class="no_bg" value="立即登录" onclick="login()"/>
+								<a href="/uc/register" target="_blank">注册</a>
 							</div>
 						</div>
 					</div>

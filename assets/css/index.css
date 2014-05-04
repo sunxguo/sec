@@ -8,7 +8,6 @@
 	position: relative; 
 	overflow: auto;
 	float:right;
-	margin-top:19.5px;
 }
 .main .main-slider .slider li {
 	list-style: none; 
@@ -47,6 +46,7 @@
 	top: 180px;
 	z-index: 10;
 	cursor:pointer;
+	left: 230px;
 }
 .products .floor .floor-head{
 	width:100%;

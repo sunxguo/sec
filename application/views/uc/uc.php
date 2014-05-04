@@ -11,7 +11,7 @@
 			</div>
 			<div class="message">
 				<div class="welcome">
-					<span class="username"><a href="">郝贱</a></span>欢迎您！
+					<span class="username"><a href=""><?=$name?></a></span>欢迎您！
 				</div>
 				<ul class="clearfix">
 					<li>订单提醒：<a href="/">交易中（0）</a></li>

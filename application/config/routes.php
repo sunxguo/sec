@@ -42,6 +42,13 @@ $route['shopping/product'] = "cshopping/product";
 $route['shopping/cart'] = "cshopping/cart";
 
 $route['uc'] = "cuc";
+$route['uc/register'] = "cuc/register";
+$route['uc/purchaser_orders'] = "cuc/purchaser_orders";
+$route['uc/seller_orders'] = "cuc/seller_orders";
+$route['uc/products'] = "cuc/products";
+$route['uc/publish'] = "cuc/publish";
+$route['uc/info'] = "cuc/info";
+$route['uc/messages'] = "cuc/messages";
 
 
 $route['default_controller'] = "home";

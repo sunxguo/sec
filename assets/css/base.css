@@ -38,7 +38,7 @@ ul li{
 }
 .main {
 	width:1190px;
-	margin:0px auto;
+	margin:19px auto;
 	position:relative;
 }
 .icon-common {
@@ -127,6 +127,7 @@ ul li{
 	display:inline-block;
 	height:30px;
 	line-height:30px;
+	text-align:center;
 	cursor:pointer;
 	border:1px solid #2d9dd5;
 	background-color:white;
@@ -143,6 +144,7 @@ ul li{
 .a_bt_err{
 	display:inline-block;
 	height:30px;
+	text-align:center;
 	line-height:30px;
 	cursor:pointer;
 	border:1px solid rgb(200,50,50);
@@ -208,23 +210,47 @@ ul li{
 .mr_r50 {
 	margin-top: 50px;
 }
+.mr_l150 {
+	margin-left: 150px !important;
+}
 .pd_l20 {
 	padding-left: 20px;
 }
 .width100{
-	width:100px;
+	width:100px !important;
 }
 .width150{
-	width:150px;
+	width:150px !important;
 }
 .width200{
 	width:200px;
+}
+.width300{
+	width:300px;
+}
+.width400{
+	width:400px;
 }
 .width50{
 	width:50px;
 }
 .width430{
 	width:430px;
+}
+.height40{
+	height:40px !important;
+}
+.text-left{
+	text-align:left !important;
+}
+.b-none{
+	border:none !important;
+}
+.margin-auto{
+	margin:0 auto;
+}
+.text-intent2{
+	text-indent: 2em;
 }
 .color-red{
 	color:#dd4250;
@@ -234,6 +260,9 @@ ul li{
 }
 .color-bule{
 	color: #005ea7;
+}
+.color-bule2{
+	color: #007CDA;
 }
 .dont_display{
 	display:none;
@@ -270,4 +299,12 @@ ul li{
 	-webkit-border-radius: 4px 4px 4px 4px;
 	-moz-border-radius: 4px 4px 4px 4px;
 	border-radius: 4px 4px 4px 4px;
+}
+.radius3{
+	-moz-border-radius: 3px;      /* Gecko browsers */
+    -webkit-border-radius: 3px;   /* Webkit browsers */
+    border-radius:3px;            /* W3C syntax */
+}
+select{
+	font-family:Microsoft Yahei;
 }

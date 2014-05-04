@@ -147,6 +147,7 @@
 }
 .header .top .menu .login-panel .login-main .miniLogin_auto{
 	width: 71%;
+	font-size:12px;
 }
 .header .top .menu .login-panel .login-main .miniLogin_auto label {
 	float: left;
@@ -161,7 +162,6 @@
 }
 .header .top .menu .login-panel .login-main .miniLogin_btn {
 	width: 71%;
-	padding: 20px 0;
 }
 .miniLogin_btn input {
 	float: left;
@@ -298,7 +298,6 @@
 .main .side-cat{
 	position: absolute;
 	left: 0px;
-	top: 19.5px;
 	z-index: 999;
 	width: 230px;
 	color: #333;
