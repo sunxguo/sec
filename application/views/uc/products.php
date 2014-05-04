@@ -15,23 +15,25 @@
 					<th class="c5">状态</th>
 					<th class="c6">操作</th>
 				</tr>
-				<?php for($i=0;$i<6;$i++):?>
+				<?php foreach($products as $item):?>
 				<tr class="orders-info">
 					<td class="c7">
 						<a href="">
-							<img src="" title=""/>
+							<?php if(unserialize($item->p_images))foreach(unserialize($item->p_images) as $img):?>
+							<img src="<?=$img?>" title=""/>
+							<?php endforeach;?>
 						</a>
 					</td>
-					<td class="c1"><a href="" class="color-bule2">三星手机</a></td>
-					<td class="c3 color-red">￥998</td>
-					<td class="c4">2014-03-26 09:31:52</td>
-					<td class="c5">交易成功</td>
+					<td class="c1"><a href="" class="color-bule2"><?=property_exists($item,"p_title")?$item->p_title:""?></a></td>
+					<td class="c3 color-red"><?=property_exists($item,"p_price")?$item->p_price:""?></td>
+					<td class="c4"><?=property_exists($item,"p_publishTime")?$item->p_publishTime:""?></td>
+					<td class="c5"><?=property_exists($item,"p_status")?$item->p_status:""?></td>
 					<td class="c6">
 						<input type="button" value="查看" class="confirm_bt"/>
 						<input type="button" value="发布/下架" class="confirm_bt mg_t10"/>
 					</td>
 				</tr>
-				<?php endfor;?>
+				<?php endforeach;?>
 			</table>
 		</div>
 		<div class="uc-footer mg_t20">

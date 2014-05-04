@@ -184,6 +184,10 @@ color: rgb(252, 37, 45);
 .uc  .uc-main .uc-publish img{
 	width:218px;
 	height:120px;
+	margin-left:10px;
+}
+#product_images .pwrapper{
+	display:inline-block;
 }
 .img_backdrop{
 	cursor:pointer;

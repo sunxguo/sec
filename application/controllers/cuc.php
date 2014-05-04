@@ -154,9 +154,10 @@ class Cuc extends CI_Controller {
 			$this->load->view('redirect',array("message"=>"请先登录","url"=>"/"));
 			return;
 		}
+		$products=$this->dbHandler->selectPartData('products','p_userId',$_SESSION['userid']);
 		$data=array(
-				"ucNaviProducts"=>true
-				
+				"ucNaviProducts"=>true,
+				"products"=>$products
 			);
 		$this->load->view('header',
 					array(
@@ -194,11 +195,11 @@ class Cuc extends CI_Controller {
 					"p_status"=>'new',
 					"p_publishTime"=>date("Y-m-d H:i:s")
 			);
-			
-			$data['p_images']=serialize($image);
+			$img_urls=$_POST['img_url'];
+			$data['p_images']=serialize($img_urls);
 			$result=$this->dbHandler->insertdata('products',$data);
 			if($result==0) $this->load->view('redirect',array("message"=>"添加失败"));
-			//else $this->load->view('redirect',array("message"=>"添加成功".$img_result,"url"=>"/uc/publish"));
+			else $this->load->view('redirect',array("message"=>"添加成功","url"=>"/uc/publish"));
 		}else{
 			$this->load->view('redirect',array("message"=>"添加失败，没有填写完整！"));
 		}
@@ -213,7 +214,10 @@ class Cuc extends CI_Controller {
 				$img_result.=";图片"+$i+"添加失败";
 			};
 		}*/
-		echo json_encode(upload("image"));
+		$result=upload("image");
+		$result['num']=$_POST['count'];
+		echo json_encode($result);
+		
 	}
 	//注册
 	public function register_user(){

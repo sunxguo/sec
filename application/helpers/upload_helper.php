@@ -12,7 +12,7 @@ function upload($upload_file_name="files"){
 		'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
 	);
 	//最大文件大小
-	$max_size = 1000000;
+	$max_size = 2000000;
 
 	$save_path = realpath($save_path) . '/';
 
@@ -20,7 +20,7 @@ function upload($upload_file_name="files"){
 	if (!empty($_FILES[$upload_file_name]['error'])) {
 		switch($_FILES[$upload_file_name]['error']){
 			case '1':
-				$error = '超过php.ini允许的大小。';
+				$error = '超过允许的大小。';//php.ini允许的大小
 				break;
 			case '2':
 				$error = '超过表单允许的大小。';
@@ -44,7 +44,7 @@ function upload($upload_file_name="files"){
 			default:
 				$error = '未知错误。';
 		}
-		return json_encode(array("code"=>false,"message"=>$error));
+		return array("code"=>false,"message"=>$error);
 	}
 
 	//有上传文件时
@@ -57,28 +57,28 @@ function upload($upload_file_name="files"){
 		$file_size = $_FILES[$upload_file_name]['size'];
 		//检查文件名
 		if (!$file_name) {
-			return json_encode(array("code"=>false,"message"=>"请选择文件。"));
+			return array("code"=>false,"message"=>"请选择文件。");
 		}
 		//检查目录
 		if (@is_dir($save_path) === false) {
-			return json_encode(array("code"=>false,"message"=>"上传目录不存在。"));
+			return array("code"=>false,"message"=>"上传目录不存在。");
 		}
 		//检查目录写权限
 		if (@is_writable($save_path) === false) {
-			return json_encode(array("code"=>false,"message"=>"上传目录没有写权限。"));
+			return array("code"=>false,"message"=>"上传目录没有写权限。");
 		}
 		//检查是否已上传
 		if (@is_uploaded_file($tmp_name) === false) {
-			return json_encode(array("code"=>false,"message"=>"上传失败。"));
+			return array("code"=>false,"message"=>"上传失败。");
 		}
 		//检查文件大小
 		if ($file_size > $max_size) {
-			return json_encode(array("code"=>false,"message"=>"上传文件大小超过限制。"));
+			return array("code"=>false,"message"=>"上传文件大小超过限制。");
 		}
 		//检查目录名
 		$dir_name = empty($_GET['dir']) ? 'image' : trim($_GET['dir']);
 		if (empty($ext_arr[$dir_name])) {
-			return json_encode(array("code"=>false,"message"=>"目录名不正确。"));
+			return array("code"=>false,"message"=>"目录名不正确。");
 		}
 		//获得文件扩展名
 		$temp_arr = explode(".", $file_name);
@@ -87,7 +87,7 @@ function upload($upload_file_name="files"){
 		$file_ext = strtolower($file_ext);
 		//检查扩展名
 		if (in_array($file_ext, $ext_arr[$dir_name]) === false) {
-			return json_encode(array("code"=>false,"message"=>"上传文件扩展名是不允许的扩展名。\n只允许" . implode(",", $ext_arr[$dir_name]) . "格式。"));
+			return array("code"=>false,"message"=>"上传文件扩展名是不允许的扩展名。\n只允许" . implode(",", $ext_arr[$dir_name]) . "格式。");
 		}
 		//创建文件夹
 		if ($dir_name !== '') {
@@ -108,12 +108,12 @@ function upload($upload_file_name="files"){
 		//移动文件
 		$file_path = $save_path . $new_file_name;
 		if (move_uploaded_file($tmp_name, $file_path) === false) {
-			return json_encode(array("code"=>false,"message"=>"上传文件失败。"));
+			return array("code"=>false,"message"=>"上传文件失败。");
 		}
 		@chmod($file_path, 0644);
 		$file_url = $save_url . $new_file_name;
 
-		return json_encode(array("code"=>true,"message"=>$file_url));
+		return array("code"=>true,"message"=>$file_url);
 	}
 }
 ?>

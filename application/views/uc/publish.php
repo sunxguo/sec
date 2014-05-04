@@ -48,14 +48,20 @@
             $(form_id).ajaxSubmit({
                 success: function (data) {
 					var result=$.parseJSON(data);
-					alert($("#img"+img_count).attr("src"));
-					$("#img"+img_count).attr("src",result.message);
+					$("#wrapper"+result.num).empty();
+					if(result.code){
+						var new_img='<img id="img'+img_count+'" src="'+result.message+'">'+
+									'<input name="img_url[]" value="'+result.message+'" type="hidden"/>';
+						$("#wrapper"+result.num).append(new_img);
+					}else{
+						alert(result.message);
+					}
                 },
                 url: "/cuc/upload_img",
                 data: $(form_id).formSerialize(),
                 type: 'POST',
-                dataType: 'json',
                 beforeSubmit: function () {
+					$(form_id).prev().attr("src","/assets/img/tools/loading.gif")
                     //$('#ajax_upload_message').html('正在努力上传图片，请稍候...');
                     //interval = loop_delimiter("正在努力上传图片，请稍候", 'ajax_upload_message');
                 }
@@ -64,10 +70,12 @@
 	}
 	function add_new_img(){
 		img_count++;
-		var new_img='<img id="img'+img_count+'" src="/assets/img/uc/upload.png" class="img_backdrop" onclick="upload_img(\'#form'+img_count+'\');"/>'+
+		var new_img='<div id="wrapper'+img_count+'" class="pwrapper">'+
+					'<img id="img'+img_count+'" src="/assets/img/uc/upload.png" class="img_backdrop" onclick="upload_img(\'#form'+img_count+'\');"/>'+
 					'<form id="form'+img_count+'" method="post" action="/cuc/upload_img" enctype="multipart/form-data">'+
 					'<input name="image" type="file" id="file'+img_count+'" style="display:none;" accept="image/*">'+
-					'</form>';
+					'<input name="count" type="hidden" value="'+img_count+'"/>'+
+					'</form></div>';
 		$("#product_images").append(new_img);
 		$("#file"+img_count).click();
 		$("#img_count").val(img_count);
@@ -84,7 +92,7 @@
 			<form method="post" action="/cuc/publish_product" enctype="multipart/form-data">
 				<div class="images" id="product_images"></div>
 				<input type="hidden" name="img_count" id="img_count" value="0"/>
-				<div class="upload" onclick="add_new_img()">+ 增加物品照片</div>
+				<div class="upload" onclick="add_new_img()">+ 增加物品照片</div><第一张默认为封面>
 				<div class="product-info">
 					<ul>
 						<li><span>发布人：</span> <?=$_SESSION['name']?></li>
