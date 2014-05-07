@@ -8,8 +8,7 @@
 		<div class="uc-orders clearfix">
 			<table>
 				<tr class="orders-header">
-					<th class="c7">商品</th>
-					<th class="c1">标题</th>
+					<th class="c1">商品</th>
 					<th class="c3">价格</th>
 					<th class="c4">时间</th>
 					<th class="c5">状态</th>
@@ -17,14 +16,13 @@
 				</tr>
 				<?php foreach($products as $item):?>
 				<tr class="orders-info">
-					<td class="c7">
+					<td class="c1">
 						<a href="">
 							<?php if(unserialize($item->p_images))foreach(unserialize($item->p_images) as $img):?>
-							<img src="<?=$img?>" title=""/>
+							<img src="<?=$img?>" title="<?=property_exists($item,"p_title")?$item->p_title:""?>"/>
 							<?php endforeach;?>
 						</a>
 					</td>
-					<td class="c1"><a href="" class="color-bule2"><?=property_exists($item,"p_title")?$item->p_title:""?></a></td>
 					<td class="c3 color-red"><?=property_exists($item,"p_price")?$item->p_price:""?></td>
 					<td class="c4"><?=property_exists($item,"p_publishTime")?$item->p_publishTime:""?></td>
 					<td class="c5"><?=property_exists($item,"p_status")?$item->p_status:""?></td>

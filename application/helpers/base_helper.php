@@ -196,6 +196,12 @@ function httpDelete($url,  $header = array(), $ssl = USE_HTTPS) {
 	curl_close($ch);
 	return $html;
 }
+	function _get_page_info($page,$amount,$page_items){
+		$info['page_amount']=ceil($amount/$page_items);
+		$info['limit']=$page_items;
+		$info['offset']=($page-1)*$page_items;
+		return $info;
+	}
 
 ?>
 

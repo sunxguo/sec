@@ -154,7 +154,10 @@ class Cuc extends CI_Controller {
 			$this->load->view('redirect',array("message"=>"请先登录","url"=>"/"));
 			return;
 		}
-		$products=$this->dbHandler->selectPartData('products','p_userId',$_SESSION['userid']);
+		$page=isset($_GET['page'])?$_GET['page']:1;
+		$amount=$this->dbHandler->amount_data('products','p_userId',$_SESSION['userid']);
+		$page_info=_get_page_info($page,$amount,10);
+		$products=$this->dbHandler->selectdata('products','p_userId',$_SESSION['userid'],$page_info['limit'],$page_info['offset'],'p_publishTime','DESC');
 		$data=array(
 				"ucNaviProducts"=>true,
 				"products"=>$products
@@ -357,11 +360,11 @@ class Cuc extends CI_Controller {
 	function SendSMS($to,$body)
 	{
         // 拼接请求包体
-       	$body= "{'to':'$to','body':'$body','msgType':'0','appId':'aaf98f8944f35b130144f3bb3f560080','subAccountSid':'aaf98f8944f35b130144f3bb3f6b0081'}"; 
+       	$body= "{'to':'$to','body':'$body','msgType':'0','appId':'aaf98f8945880f9e0145b81bc2c4283f','subAccountSid':'aaf98f8944f35b130144f3bb3f6b0081'}"; 
         // 大写的sig参数 
         $sig =  strtoupper(md5('aaf98f8944f35b130144f3b5412b0076' . 'f708d6bf0d33463bac5313571e91cbe9' . date("YmdHis")));
         // 生成请求URL        
-        $url="https://sandboxapp.cloopen.com:8883/2013-12-26/Accounts/aaf98f8944f35b130144f3b5412b0076/SMS/Messages?sig=$sig";
+        $url="https://app.cloopen.com:8883/2013-12-26/Accounts/aaf98f8944f35b130144f3b5412b0076/SMS/Messages?sig=$sig";
         // 生成授权：主账户Id + 英文冒号 + 时间戳。
         $authen = base64_encode("aaf98f8944f35b130144f3b5412b0076" . ":" . date("YmdHis"));
         // 生成包头
@@ -369,6 +372,22 @@ class Cuc extends CI_Controller {
         // 发送请求
         $result = httpPost($url,$body,$header,true);
         return $result;
+	}
+	function getSubAccount()
+	{
+        // 拼接请求包体
+       	$body= "{'appId':'aaf98f8945880f9e0145b81bc2c4283f','friendlyName':'MonkeyKing1024@gmail.com','accountSid':'aaf98f8944f35b130144f3b5412b0076'}"; 
+        // 大写的sig参数 
+        $sig =  strtoupper(md5('aaf98f8944f35b130144f3b5412b0076' . 'f708d6bf0d33463bac5313571e91cbe9' . date("YmdHis")));
+        // 生成请求URL        
+        $url="https://app.cloopen.com:8883/2013-12-26/Accounts/aaf98f8944f35b130144f3b5412b0076/SubAccounts?sig=$sig";
+        // 生成授权：主账户Id + 英文冒号 + 时间戳。
+        $authen = base64_encode("aaf98f8944f35b130144f3b5412b0076" . ":" . date("YmdHis"));
+        // 生成包头
+        $header = array("Accept:application/json","Content-Type:application/json;charset=utf-8","Authorization:$authen");
+        // 发送请求
+        $result = httpPost($url,$body,$header,true);
+        echo $result;
 	}
 	function send_email(){
 		$to = "sunxguo@163.com";
