@@ -68,7 +68,7 @@ function createCookieArray($key, $value, $expire) {
  * @param string $url url to get
  * @return html return
  */
-function httpGet($url, $param = array(), $header = array(), $ssl = USE_HTTPS) {
+function httpGet($url, $param = array(), $header = array(), $ssl = false) {
 	$paramString = "?";
 	foreach ($param as $key => $value) $paramString = $paramString.$key."=".$value."&";
 	if($paramString != "") $paramString[strlen($paramString) - 1] = '';

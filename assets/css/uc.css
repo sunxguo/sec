@@ -31,7 +31,7 @@
 	cursor:default  !important;
 }
 .uc .uc-left .cur {
-	background-color: rgb(64, 162, 215);
+	background-color: rgb(255,115,115);
 	color: white;
 }
 .uc .uc-left li {
@@ -44,7 +44,7 @@
 	cursor: pointer;
 }
 .uc .uc-left li:hover {
-	background-color:#6AB7E0;
+	background-color:rgb(255,115,115);
 	color:white;
 }
 .uc .uc-left li .new_orders_num {
@@ -148,6 +148,9 @@ color: rgb(252, 37, 45);
 	border-width: 1px 0 0 1px;
 	padding: 5px 4px;
 	text-align: center;
+}
+.uc .uc-orders .lc1{
+	width:400px;
 }
 .uc .uc-orders .c1{
 	width:300px;

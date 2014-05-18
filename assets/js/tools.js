@@ -27,11 +27,11 @@ $(document).ready(function(){
 		});
 		$("#miniCart").mouseover(function(){
 			$(this).addClass("mini-cart-on");
-			$("#miniCartList").delay(100).show(300);
+			$("#miniCartList").show();
 		});
 		$("#miniCart").mouseout(function(){
 			$(this).removeClass("mini-cart-on");
-			$("#miniCartList").delay(1000).hide(300);
+			$("#miniCartList").hide();
 		});
 });	
 	function showLogin(){

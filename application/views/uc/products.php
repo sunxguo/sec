@@ -8,7 +8,7 @@
 		<div class="uc-orders clearfix">
 			<table>
 				<tr class="orders-header">
-					<th class="c1">商品</th>
+					<th class="lc1">商品</th>
 					<th class="c3">价格</th>
 					<th class="c4">时间</th>
 					<th class="c5">状态</th>

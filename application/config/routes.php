@@ -37,10 +37,16 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+/**
+ * 购物
+ */
 $route['shopping'] = "cshopping";
 $route['shopping/product'] = "cshopping/product";
 $route['shopping/cart'] = "cshopping/cart";
 
+/**
+ * 用户中心
+ */
 $route['uc'] = "cuc";
 $route['uc/register'] = "cuc/register";
 $route['uc/purchaser_orders'] = "cuc/purchaser_orders";
@@ -49,8 +55,11 @@ $route['uc/products'] = "cuc/products";
 $route['uc/publish'] = "cuc/publish";
 $route['uc/info'] = "cuc/info";
 $route['uc/messages'] = "cuc/messages";
-
-
+/**
+ * 后台管理
+ */
+$route['admin'] = "cadmin";
+ 
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 

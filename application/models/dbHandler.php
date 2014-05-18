@@ -45,6 +45,13 @@ class DbHandler extends CI_Model{
 		//$this->db->orderby($ordercol,$orderby);
 	 	return $query = $this->db->get()->result();
 	 }
+	 public function selectPartDataOrder($table,$where,$content,$ordercol,$orderby)
+	 {
+		$this->db->where($where,$content);
+		$this->db->from($table);
+		$this->db->order_by($ordercol,$orderby);
+	 	return $query = $this->db->get()->result();
+	 }
 	 public function selectAllData($table)
 	 {
 	 	return $query = $this->db->get($table)->result();
@@ -63,6 +70,30 @@ class DbHandler extends CI_Model{
 	 public function amount_data_no_condition($table)
 	 {
 		return $total = $this->db->count_all($table);
+	 }
+	public function amount_data_by_like($table,$like,$condition)
+	 {
+		foreach($like as $col=>$value){
+			$this->db->like($col,$value);
+		}
+		foreach($condition as $col=>$value){
+			$this->db->where($col,$value);
+		}
+		$this->db->from($table);
+		return $total = $this->db->count_all_results();
+	 }
+	 public function select_data_by_like($table,$like,$condition,$limit,$offset,$ordercol,$orderby)
+	 {
+		foreach($like as $col=>$value){
+			$this->db->like($col,$value);
+		}
+		foreach($condition as $col=>$value){
+			$this->db->where($col,$value);
+		}
+		$this->db->limit($limit,$offset);
+		$this->db->from($table);
+		$this->db->order_by($ordercol,$orderby);
+	 	return $query = $this->db->get()->result();
 	 }
 
 }

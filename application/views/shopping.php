@@ -1,26 +1,22 @@
 <link rel="stylesheet" href="/assets/css/shopping.css" type="text/css">
 <div class="shopping">
+	<?php if($filter && unserialize($filter->cat_property)):?>
 	<div class="filter radius4">
-		<div class="filter-header"><span class="cat">平板电视</span>-商品筛选</div>
+		<div class="filter-header"><span class="cat"><?=$filter->cat_name?></span>-商品筛选</div>
 		<ul class="filter-body">
+			<?php foreach(unserialize($item->cat_property) as $item):?>
 			<li class="filter-item clearfix">
-				<div class="param">品牌：</div>
+				<div class="param"><?=$item->name?>：</div>
 				<dl>
-					<dd><a>海信</a></dd>
-					<dd><a>TCL</a></dd>
-					<dd><a>三星</a></dd>
+					<?php foreach($item->value as $v):?>
+					<dd><a><?=$v?></a></dd>
+					<?php endforeach;?>
 				</dl>
 			</li>
-			<li class="filter-item clearfix">
-				<div class="param">价格：</div>
-				<dl>
-					<dd><a>海信</a></dd>
-					<dd><a>TCL</a></dd>
-					<dd><a>三星</a></dd>
-				</dl>
-			</li>
+			<?php endforeach;?>
 		</ul>
 	</div>
+	<?php endif;?>
 	<div class="products-header clearfix radius4">
 		<div class="order">
 			<span>排序：</span>
@@ -31,31 +27,31 @@
 			</ul>
 		</div>
 		<div class="page">
-			1/12页
+			<?=$page_current?>/<?=$page_amount?>页
 			<a class="no">上一页</a>
 			<a class="page_bt ">下一页</a>
 		</div>
 	</div>
 	<div class="products-list clearfix">
 		<ul class="lists">
-		<?php for($i=0;$i<10;$i++):?>
+		<?php foreach($products as $item):?>
 			<li class="box">
-				<a href="/shopping/product" title="苹果（APPLE）iPhone 5s 32G版 4G手机（深空灰色）">
-					<img src="/assets/img/product/tv.jpg">
-					<span class="title">苹果（APPLE）iPhone 5s 32G版 4G手机（深空灰色）</span>
+				<a href="/shopping/product?id=<?=$item->p_id?>" title="<?=$item->p_title?>">
+					<img src="<?php if(unserialize($item->p_images)) echo unserialize($item->p_images)[0];?>"/>
+					<span class="title"><?=$item->p_title?></span>
 				</a>
-				<span class="price">￥4999</span>
+				<span class="price"><?=$item->p_price?></span>
 				<div class="oper">
 					<input type="button" value="加入购物车"/>
 					<input type="button" value="立即交易" onclick="confirmDeal()"/>
 				</div>
 			</li>
-		<?php endfor;?>
+		<?php endforeach;?>
 		</ul>
 	</div>
 	<div class="products-header clearfix products-footer">
 		<div class="page">
-			1/12页
+			<?=$page_current?>/<?=$page_amount?>页
 			<a class="no">上一页</a>
 			<a class="page_bt ">下一页</a>
 		</div>

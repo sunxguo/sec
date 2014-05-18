@@ -34,8 +34,10 @@
 				</form>
 			</div>
 			<div class="miniCart" id="miniCart">
-				<span class="cart-bt icon-common"></span>
-				购物车
+				<div>
+					<span class="cart-bt icon-common"></span>
+					购物车
+				</div>
 				<div class="mini-cart-list" id="miniCartList">
 					<div class="loading">数据加载中，请稍后...</div>
 				</div>
@@ -95,39 +97,5 @@
 		<?php endif;?>
     </div>
 	<div class="main clearfix">
-		<?php if($showSideCat):?>
-		<div class="side-cat">
-			<ul>
-			<?php for($i=0;$i<10;$i++):?>
-				<li class="cat">
-					<a class="cat-tit">图书音像</a>
-					<span class="arrow icon-common"></span>
-					<span class="showPos"><i></i></span>
-					<div class="subCat">
-						<dl class="lists">
-							<dd>
-								<a href="">
-									<img src="/assets/img/cate/tm.jpg"/>
-									教材
-								</a>
-							</dd>
-							<dd>
-								<a href="">
-									<img src="/assets/img/cate/tm.jpg"/>
-									图书音像
-								</a>
-							</dd>
-							<dd>
-								<a href="">
-									<img src="/assets/img/cate/tm.jpg"/>
-									教材
-								</a>
-							</dd>
-						</dl>
-					</div>
-				</li>
-			<?php endfor;?>
-			</ul>
+		<?php if($showSideCat) require("category.php");?>
 		<?php //require("product-side-ad.php"); ?>
-		</div>
-		<?php endif;?>
