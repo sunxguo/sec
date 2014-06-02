@@ -40,9 +40,9 @@
 					<img src="<?php if(unserialize($item->p_images)) echo unserialize($item->p_images)[0];?>"/>
 					<span class="title"><?=$item->p_title?></span>
 				</a>
-				<span class="price"><?=$item->p_price?></span>
+				<span class="price">￥<?=$item->p_price?></span>
 				<div class="oper">
-					<input type="button" value="加入购物车"/>
+					<input type="button" value="加入购物车" onclick="addToCart('<?=$item->p_id?>')"/>
 					<input type="button" value="立即交易" onclick="confirmDeal()"/>
 				</div>
 			</li>
@@ -57,3 +57,11 @@
 		</div>
 	</div>
 </div>
+<script>
+function addToCart(id){
+	$.post("/cshopping/put_to_cart",{id:id},function(result){
+		var obj=$.parseJSON(result);
+		alert(obj.message);
+	});
+}
+</script>

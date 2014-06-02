@@ -4,6 +4,7 @@ class Cshopping extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper("base");
+		$this->load->helper("cart");
 		$this->load->model("dbHandler");
 		$this->load->model("category");
 	}
@@ -60,10 +61,23 @@ class Cshopping extends CI_Controller {
 						"cat"=>$this->category->_get_categories(),
 						"showNav"=>true
 					));
-		$this->load->view('product');
+		if(isset($_GET['id']) && $_GET['id']!="" && is_numeric($_GET['id'])){
+			$pid=$_GET['id'];
+			$product=$this->dbHandler->selectPartData('products','p_id',$pid);
+			if(count($product)>0){
+				$this->load->view('product',array("product"=>$product[0],"merchant"=>$this->get_merchant($product[0]->p_userId)));
+			}else{
+				$this->load->view('404',array("message"=>"抱歉，找不到该商品"));
+			}
+		}else{
+			$this->load->view('404',array("message"=>"抱歉，找不到该商品"));
+		}
 		$this->load->view('footer');
 	}
 	public function cart(){
+		$data=array(
+		//	"products"=>,
+		);
 		$this->load->view('header',
 					array(
 						"title"=>"我的购物车 -学城网",
@@ -72,7 +86,21 @@ class Cshopping extends CI_Controller {
 						"showSideCat"=>false,
 						"showNav"=>false
 					));
-		$this->load->view('cart');
+		$this->load->view('cart',$data);
 		$this->load->view('footer');
+	}
+	public function get_merchant($id){
+		$merchant=$this->dbHandler->selectPartData('users','u_id',$id);
+		return $merchant[0];
+	}
+	public function get_product($id){
+		$product=$this->dbHandler->selectPartData('products','p_id',$id);
+		return $product[0];
+	}
+	public function put_to_cart(){
+		$product=$this->get_product($_POST['id']);
+		if(add_to_cart($_POST['id'],$product->p_userId)){
+			echo json_encode(array("code"=>true,"message"=>"添加成功"));
+		}else echo json_encode(array("code"=>false,"message"=>"已加入到购物车"));
 	}
 }

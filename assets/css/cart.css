@@ -19,12 +19,12 @@
 	background-color:rgb(255,253,238);
 	border-top:1px solid #ddd;
 	font-size:14px;
-	padding-top:10px;
 	height:60px;
-	line-height:60px;
 }
 .cart .products-lists dl dd{
-	display:inline-block;
+	float: left;
+	height:60px;
+	line-height:60px;
 }
 .cart .products-lists .lists-header{
 	background-color:#f7f7f7;
@@ -41,8 +41,8 @@
 	margin-left:20px;
 }
 .cart .products-lists .product a div{
-	float:left;
-	width:450px;
+	display:inline-block;
+	width:420px;
 	margin-left:10px;
 	line-height:20px;
 	padding-top:15px;
@@ -50,15 +50,25 @@
     overflow: hidden; 
 }
 .cart .products-lists .lists-body .product img{
+	display:inline-block;
 	float:left;
-	width:80px;
+	width:108px;
+	height:60px;
 	margin-left:20px;
 }
 .cart .products-lists .product{
 	width:600px;
 }
+.cart .products-lists .merchant{
+	width:100px;
+	text-align:center;
+}
+.cart .products-lists .merchant a{
+	width:100px;
+	display:inline-block;
+}
 .cart .products-lists .price{
-	width:150px;
+	width:100px;
 	text-align:center;
 }
 .cart .products-lists .discount{
@@ -66,11 +76,11 @@
 	text-align:center;
 }
 .cart .products-lists .new{
-	width:130px;
+	width:100px;
 	text-align:center;
 }
 .cart .products-lists .oper{
-	width:150px;
+	width:120px;
 	text-align:center;
 	border-right:none !important;
 }
@@ -79,4 +89,9 @@
 	height:40px;
 	line-height:40px;
 	padding-right:50px;
+}
+.show-short{
+	overflow:hidden; 
+	text-overflow:ellipsis; 
+	white-space:nowrap;
 }

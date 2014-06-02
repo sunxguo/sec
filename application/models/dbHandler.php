@@ -84,8 +84,10 @@ class DbHandler extends CI_Model{
 	 }
 	 public function select_data_by_like($table,$like,$condition,$limit,$offset,$ordercol,$orderby)
 	 {
-		foreach($like as $col=>$value){
-			$this->db->like($col,$value);
+		if(count($like)>0){
+			foreach($like as $col=>$value){
+				$this->db->like($col,$value);
+			}
 		}
 		foreach($condition as $col=>$value){
 			$this->db->where($col,$value);

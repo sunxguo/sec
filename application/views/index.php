@@ -29,9 +29,10 @@
 	<a class="bt_nav icon-slides-next icon-slides" id="next">Next</a>
 </div>
 <div class="products">
-	<div class="floor">
+	<?php foreach($products as $floor):?>
+	<div class="floor clearfix">
 		<div class="floor-head">
-			<h3>数码电子</h3>
+			<h3><?=$floor['cat']?></h3>
 			<div class="filter">
 				<ul>
 					<li><a>全部</a></li>
@@ -42,17 +43,18 @@
 			</div>
 		</div>
 		<ul class="lists">
-		<?php for($i=0;$i<10;$i++):?>
+		<?php foreach($floor['products'] as $product):?>
 			<li class="box">
-				<a>
-					<img src="/assets/img/product/tv.jpg"/>
+				<a href="/shopping/product?id=<?=$product->p_id?>" target="_blank">
+					<img src="<?=unserialize($product->p_images)?unserialize($product->p_images)[0]:""?>"/>
+					<div class="product-info">
+						<h4 class="name txt mr_t80"><?=$product->p_title?></h4>
+						<span class="user txt color-red2"><?=$product->p_title?></span>
+					</div>
 				</a>
-				<div class="product-info">
-					<h4 class="name txt mr_t80">电视</h4>
-					<span class="user txt color-red2">Snake</span>
-				</div>
 			</li>
-		<?php endfor;?>
+		<?php endforeach;?>
 		</ul>
 	</div>
+	<?php endforeach;?>
 </div>

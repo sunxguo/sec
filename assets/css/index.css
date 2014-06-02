@@ -116,8 +116,7 @@
 	width: 218px;
 	height: 120px;
 	position: absolute;
-	left: 3px;
-	bottom: 3px;
+	bottom: 4px;
 	color: #fff;
 	background: url("../img/index/index_product_bg.png") repeat-x left bottom;
 	z-index:11;
