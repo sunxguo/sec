@@ -63,6 +63,9 @@ $route['uc/messages'] = "cuc/messages";
  */
 $route['info'] = "cinfo";
 $route['info/about'] = "cinfo/about";
+$route['info/contact'] = "cinfo/contact";
+$route['info/link'] = "cinfo/link";
+$route['info/attention'] = "cinfo/attention";
 /**
  * 后台管理
  */

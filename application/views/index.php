@@ -35,10 +35,10 @@
 			<h3><?=$floor['cat']?></h3>
 			<div class="filter">
 				<ul>
-					<li><a>全部</a></li>
-					<li><a>手机</a></li>
-					<li><a>电脑</a></li>
-					<li><a>音箱</a></li>
+					<li><a href="/shopping?cat=<?=$floor['catid']?>" target="_blank">全部</a></li>
+					<?php foreach($floor['property'] as $item):?>
+					<li><a href="/shopping?cat=<?=$floor['cat']?>&pro=<?=$item?>" target="_blank"><?=$item?></a></li>
+					<?php endforeach;?>
 				</ul>
 			</div>
 		</div>
@@ -46,10 +46,10 @@
 		<?php foreach($floor['products'] as $product):?>
 			<li class="box">
 				<a href="/shopping/product?id=<?=$product->p_id?>" target="_blank">
-					<img src="<?php $img=unserialize($product->p_images);if(count($imgs)>0)echo $img[0];?>"/>
+					<img src="<?php $imgs=unserialize($product->p_images);if(count($imgs)>0)echo $imgs[0];?>"/>
 					<div class="product-info">
 						<h4 class="name txt mr_t80"><?=$product->p_title?></h4>
-						<span class="user txt color-red2"><?=$product->p_title?></span>
+						<span class="user txt color-red2"><?=$product->p_user->u_name?></span>
 					</div>
 				</a>
 			</li>

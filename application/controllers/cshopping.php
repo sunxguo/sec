@@ -86,15 +86,6 @@ class Cshopping extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function product(){
-		$this->load->view('header',
-					array(
-						"title"=>"iphone 5s -学城网",
-						"description"=>"太原工业学院二手交易平台，校内线下交易",
-						"keywords"=>"太原工业学院，二手交易，titer，校内线下交易",
-						"showSideCat"=>true,
-						"cat"=>$this->category->_get_categories(),
-						"showNav"=>true
-					));
 		if(isset($_GET['id']) && $_GET['id']!="" && is_numeric($_GET['id'])){
 			$pid=$_GET['id'];
 			$product=$this->dbHandler->selectPartData('products','p_id',$pid);
@@ -102,11 +93,38 @@ class Cshopping extends CI_Controller {
 				$merchant=$this->get_merchant($product[0]->p_userId);
 				$show=0;
 				if(isset($_SESSION['userid']))$show=$this->dbHandler->amount_data_by_like('orders',array("o_products"=>$pid),array("o_purchaser"=>$_SESSION['userid']));
+				$this->load->view('header',
+						array(
+							"title"=>$product[0]->p_title."-学城网",
+							"description"=>"太原工业学院二手交易平台，校内线下交易",
+							"keywords"=>"太原工业学院，二手交易，titer，校内线下交易",
+							"showSideCat"=>true,
+							"cat"=>$this->category->_get_categories(),
+							"showNav"=>true
+				));
 				$this->load->view('product',array("product"=>$product[0],"merchant"=>$merchant,"show"=>$show));
 			}else{
+				$this->load->view('header',
+						array(
+							"title"=>"找不到该商品",
+							"description"=>"太原工业学院二手交易平台，校内线下交易",
+							"keywords"=>"太原工业学院，二手交易，titer，校内线下交易",
+							"showSideCat"=>true,
+							"cat"=>$this->category->_get_categories(),
+							"showNav"=>true
+				));
 				$this->load->view('404',array("message"=>"抱歉，找不到该商品"));
 			}
 		}else{
+				$this->load->view('header',
+						array(
+							"title"=>"找不到该商品",
+							"description"=>"太原工业学院二手交易平台，校内线下交易",
+							"keywords"=>"太原工业学院，二手交易，titer，校内线下交易",
+							"showSideCat"=>true,
+							"cat"=>$this->category->_get_categories(),
+							"showNav"=>true
+				));
 			$this->load->view('404',array("message"=>"抱歉，找不到该商品"));
 		}
 		$this->load->view('footer');
