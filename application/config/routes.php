@@ -38,14 +38,14 @@
 |
 */
 /**
- * 购物
+ * 璐墿
  */
 $route['shopping'] = "cshopping";
 $route['shopping/product'] = "cshopping/product";
 $route['shopping/cart'] = "cshopping/cart";
 
 /**
- * 用户中心
+ * 鐢ㄦ埛涓績
  */
 $route['uc'] = "cuc";
 $route['uc/register'] = "cuc/register";
@@ -59,12 +59,12 @@ $route['uc/info'] = "cuc/info";
 $route['uc/messages'] = "cuc/messages";
 
 /**
- * 团队信息
+ * 鍥㈤槦淇℃伅
  */
 $route['info'] = "cinfo";
 $route['info/about'] = "cinfo/about";
 /**
- * 后台管理
+ * 鍚庡彴绠＄悊
  */
 $route['admin'] = "cadmin/login";
 $route['admin/login'] = "cadmin/login";
