@@ -71,7 +71,7 @@
 		<?php foreach($products as $item):?>
 			<li class="box">
 				<a href="/shopping/product?id=<?=$item->p_id?>" title="<?=$item->p_title?>">
-					<img src="<?php if(unserialize($item->p_images)) echo unserialize($item->p_images)[0];?>"/>
+					<img src="<?php $imgs=unserialize($item->p_images); echo $imgs[0];?>"/>
 					<span class="title"><?=$item->p_title?></span>
 				</a>
 				<span class="price">￥<?=$item->p_price?></span>

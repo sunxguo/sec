@@ -5,7 +5,7 @@
 		<div class="gallery">
 			<div class="slider" id="slider">
 				<ul>
-					<?php if(unserialize($product->p_images))foreach(unserialize($product->p_images) as $img):?>
+					<?php $imgs=unserialize($product->p_images);foreach($imgs as $img):?>
 					<li><img src="<?=$img?>" title="<?=$product->p_title?>"  onload="AutoResizeImage(436,240,this)"/></li>
 					<?php endforeach;?>
 				</ul>
