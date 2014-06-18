@@ -95,7 +95,8 @@ class Cadmin extends CI_Controller {
 		$this->load->view('footer');
 	}
 	public function addNewCat(){
-		$imgurl=upload("image")["message"];
+		$result=upload("image");
+		$imgurl=$result["message"];
 		$fid=0;
 		if($_POST['type']==2){
 			$fid=$_POST['cat'];
