@@ -248,7 +248,7 @@ class Cshopping extends CI_Controller {
 		else  return true;
 	}
 	public function get_mini_cart(){
-		$cart=$_SESSION["cart"];
+		$cart=isset($_SESSION["cart"])?$_SESSION["cart"]:array();
 		$products=array();
 		foreach($cart as $key=>$item){
 			$product=$this->get_product($key);
