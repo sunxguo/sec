@@ -35,7 +35,7 @@
 					<dl>
 						<dd class="product">
 							<a href="/shopping/product?id=<?=$product->p_id?>" target="_blank">
-								<img src="<?php if(unserialize($product->p_images)) echo unserialize($product->p_images)[0];?>"/>
+								<img src="<?php $imgs=unserialize($product->p_images); echo $imgs[0];?>"/>
 								<div class="color-bule show-short"><?=$product->p_title?></div>
 							</a>
 						</dd>

@@ -9,9 +9,9 @@ class Cinfo extends CI_Controller {
 		$this->load->model("dbHandler");
 	}
 	public function index(){
-		$info=$this->dbHandler->selectPartData('users','u_id',$_SESSION["userid"])[0];
+		$info=$this->dbHandler->selectPartData('users','u_id',$_SESSION["userid"]);
 		$data=array(
-				"info"=>$info
+				"info"=>$info[0]
 		);
 		$this->load->view('header',
 					array(
@@ -34,9 +34,9 @@ class Cinfo extends CI_Controller {
 						"showNav"=>true
 					));
 		
-		$about=$this->dbHandler->selectPartData('info','i_name',"about")[0];
+		$about=$this->dbHandler->selectPartData('info','i_name',"about");
 		$data=array(
-				"about"=>$about
+				"about"=>$about[0]
 		);
 		$this->load->view('info/about',$data);
 		$this->load->view('footer');

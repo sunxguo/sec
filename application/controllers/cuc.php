@@ -13,9 +13,9 @@ class Cuc extends CI_Controller {
 			$this->load->view('redirect',array("message"=>"请先登录"));
 			return;
 		}
-		$info=$this->dbHandler->selectPartData('users','u_id',$_SESSION["userid"])[0];
+		$info=$this->dbHandler->selectPartData('users','u_id',$_SESSION["userid"]);
 		$data=array(
-				"info"=>$info
+				"info"=>$info[0]
 		);
 		$this->load->view('header',
 					array(
@@ -191,10 +191,10 @@ class Cuc extends CI_Controller {
 			$this->load->view('redirect',array("message"=>"请先登录"));
 			return;
 		}
-		$info=$this->dbHandler->selectPartData('users','u_id',$_SESSION["userid"])[0];
+		$info=$this->dbHandler->selectPartData('users','u_id',$_SESSION["userid"]);
 		$data=array(
 				"ucNaviInfo"=>true,
-				"info"=>$info
+				"info"=>$info[0]
 			);
 		$this->load->view('header',
 					array(

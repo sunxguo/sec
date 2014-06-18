@@ -19,7 +19,7 @@
 				<tr class="orders-info <?=$item->p_listed==0?"off":"on"?>">
 					<td class="c1">
 						<a href="/shopping/product?id=<?=$item->p_id?>" target="_blank">
-							<?php if(unserialize($item->p_images))foreach(unserialize($item->p_images) as $img):?>
+							<?php $imgs=unserialize($item->p_images);foreach($imgs as $img):?>
 							<img src="<?=$img?>" title="<?=property_exists($item,"p_title")?$item->p_title:""?>"/>
 							<?php endforeach;?>
 						</a>

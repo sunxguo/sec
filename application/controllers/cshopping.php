@@ -46,8 +46,8 @@ class Cshopping extends CI_Controller {
 	public function filter($cat,$scat){
 		if($cat!="" && $scat!=""){
 			$catId=($scat!="")?$scat:"";
-			$cat=$this->dbHandler->selectPartData('category','cat_id',$scat)[0];
-			return $cat;
+			$cat=$this->dbHandler->selectPartData('category','cat_id',$scat);
+			return $cat[0];
 		}
 		return false;
 	}
@@ -189,8 +189,8 @@ class Cshopping extends CI_Controller {
 	}
 	public function is_bought_product(){
 		$id=$_POST["id"];
-		$product=$this->dbHandler->selectPartData('products','p_id',$id)[0];
-		if($product->p_status==0) echo json_encode(array("code"=>false,"message"=>'未被预定'));
+		$product=$this->dbHandler->selectPartData('products','p_id',$id);
+		if($product[0]->p_status==0) echo json_encode(array("code"=>false,"message"=>'未被预定'));
 		else echo json_encode(array("code"=>false,"message"=>'被预定'));
 	}
 	public function buy_product(){
@@ -252,8 +252,8 @@ class Cshopping extends CI_Controller {
 		$products=array();
 		foreach($cart as $key=>$item){
 			$product=$this->get_product($key);
-			@$product->p_images=unserialize($product->p_images)[0];
-			array_push($products,$product);
+			@$product->p_images=unserialize($product->p_images);
+			array_push($products,$product[0]);
 		}
 		echo json_encode($products);
 	}
