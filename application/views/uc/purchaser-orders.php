@@ -23,7 +23,7 @@
 					<td class="c1">
 						<?php foreach($item->products as $product):?>
 						<a href="/shopping/product?id=<?=$product->p_id?>" target="_blank">
-							<img src="<?php $imgs=unserialize($product->p_images); echo $imgs[0];?>" title="<?=$product->p_title?>" alt="<?=$product->p_title?>"/>
+							<img src="<?php $imgs=unserialize($product->p_images);if(count($imgs)>0) echo $imgs[0];?>" title="<?=$product->p_title?>" alt="<?=$product->p_title?>"/>
 						</a>
 						<?php endforeach;?>
 					</td>
