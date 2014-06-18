@@ -46,7 +46,7 @@
 		<?php foreach($floor['products'] as $product):?>
 			<li class="box">
 				<a href="/shopping/product?id=<?=$product->p_id?>" target="_blank">
-					<img src="<?=unserialize($product->p_images)?unserialize($product->p_images)[0]:""?>"/>
+					<img src="<?=unserialize($product->p_images)?unserialize($product->p_images)["0"]:""?>"/>
 					<div class="product-info">
 						<h4 class="name txt mr_t80"><?=$product->p_title?></h4>
 						<span class="user txt color-red2"><?=$product->p_title?></span>
