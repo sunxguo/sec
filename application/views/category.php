@@ -10,7 +10,7 @@
 					<?php foreach($item->subcat as $i):?>
 						<dd>
 							<a href="/shopping?cat=<?=$item->cat_id?>&scat=<?=$i->cat_id?>">
-								<img src="/assets/img/cate/tm.jpg"/>
+								<img src="<?=$i->cat_img?>"/>
 								<?=$i->cat_name?>
 							</a>
 						</dd>

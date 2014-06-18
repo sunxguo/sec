@@ -1,0 +1,27 @@
+.main form{
+	width:300px;
+	margin:10% auto;
+}
+.main form input{
+	width:250px;
+	height:30px;
+	display:block;
+	padding:5px;
+	margin-top:10px;
+	border:1px solid rgb(220,77,91);
+	outline:none;
+	-moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}
+.main form .bt{
+	background-color:rgb(220,77,91);
+	cursor:pointer;
+	height:35px;
+	width:260px;
+	color:white;
+	margin-top:20px;
+}
+.main form .bt:hover{
+	background-color: #CE2839;
+}

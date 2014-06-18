@@ -17,5 +17,5 @@
 		});*/
 	});
 </script>
-<div class="main-slider clearfix">
+<div class="admin-main">
 </div>

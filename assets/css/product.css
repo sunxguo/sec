@@ -79,6 +79,12 @@
 	margin-right:10px;
 	text-align:justify;
 }
+.product .params .summary ul li b{
+	display:inline-block;
+	width:50px;
+	margin-right:10px;
+	text-align:justify;
+}
 .product .params .summary .title{
 	padding-bottom:5px;
 	border-bottom:1px dotted #CCC;

@@ -15,6 +15,33 @@ a {
 	color: #656d78;
 	text-decoration: none;
 }
+.a-green{
+	color:#00B300;
+}
+.a-green:hover{
+	color:#009A00;
+	cursor:hover;
+}
+.a-blue{
+	color:#2d9dd5;
+}
+.a-blue:hover{
+	color:#227EAD;
+	cursor:hover;
+}
+.a-red{
+	color:#FF0000;
+}
+.a-red:hover{
+	color:#D90000;
+	cursor:hover;
+}
+.off{
+	background-color:#FFCFBF;
+}
+.on{
+	background-color:#DFFFBF;;
+}
 .clearfix:after {
 visibility: hidden;
 display: block;
@@ -159,6 +186,24 @@ ul li{
 	background-color:rgb(200,50,50);
 	color:white;
 }
+.a-bt-right{
+	width:100px;
+	height:35px;
+	line-height:35px;
+	border:none;
+	cursor:pointer;
+	background-color:#2d9dd5;
+	color:white;
+	outline:none;
+	display:inline-block;
+	-moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}
+.a-bt-right:hover{
+	background-color:#1A7AAA;
+	color:white;
+}
 .dots {
 	position: absolute;
 	left: 0;
@@ -188,6 +233,21 @@ ul li{
 }
 .f_r{
 	float:right;
+}
+.t_l{
+	text-align:left !important;
+}
+.font12{
+	font-size:12px;
+}
+.font14{
+	font-size:14px;
+}
+.font15{
+	font-size:15px;
+}
+.font16{
+	font-size:16px;
 }
 .mg_t10{
 	margin-top:10px;
@@ -219,8 +279,14 @@ ul li{
 .width100{
 	width:100px !important;
 }
+.width120{
+	width:120px !important;
+}
 .width150{
 	width:150px !important;
+}
+.width160{
+	width:160px !important;
 }
 .width200{
 	width:200px;

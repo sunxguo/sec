@@ -1,3 +1,4 @@
+<script charset="utf-8" src="/assets/js/uc.js"></script>
 <ul class="uc-left">
 	<li class="l1">我是买家</li>
 	<li class="<?=(isset($ucNaviPOrders     ) && $ucNaviPOrders     ) ? 'cur' : '' ?>" onclick="window.location='/uc/purchaser_orders'">订单管理<span id="new_orders_num" class="new_orders_num">0</span></li>

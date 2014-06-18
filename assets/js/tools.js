@@ -25,12 +25,14 @@ $(document).ready(function(){
 		$('#backdrop').click(function(){
 			hideLogin();
 		});
-		$("#miniCart").mouseover(function(){
-			$(this).addClass("mini-cart-on");
+		$("#miniCart").mouseenter(function(){
+			$("#miniCartBt").addClass("mini-cart-on");
 			$("#miniCartList").show();
+			$("#cart_list").html("数据加载中，请稍后...");
+			get_mini_cart();
 		});
-		$("#miniCart").mouseout(function(){
-			$(this).removeClass("mini-cart-on");
+		$("#miniCart").mouseleave(function(){
+			$("#miniCartBt").removeClass("mini-cart-on");
 			$("#miniCartList").hide();
 		});
 });	
@@ -42,10 +44,31 @@ $(document).ready(function(){
 		$('#login-panel').hide(200);
 		$('#backdrop').hide();
 	}
-	function confirmDeal(){
+	function confirmDeal(id){
 		if(confirm("您将遵守诚信协议，并和卖家线下交易？")){
 			//ajax生成订单
-			
+			$.ajax({  
+				  type : "post",  
+				  url : "/cshopping/is_bought_product",  
+				  data : "id="+id,  
+				  async : false,  
+				  success : function(data){
+								var rs=$.parseJSON(data);
+								if(rs.code){
+									alert(rs.message);
+								}
+								else {
+									$.post("/cshopping/buy_product",
+											{id:id},
+											function(data){
+												var rs=$.parseJSON(data);
+												if(rs.code) {alert(rs.message);window.location.reload();}
+												else{alert(rs.message);}
+											}
+									);
+								}
+							}
+			 });
 		}
 	}
 	function login(){
@@ -132,4 +155,32 @@ $(document).ready(function(){
 		}
 		objImg.height = h;
 		objImg.width = w;
+	}
+	function get_mini_cart(){
+		$.get("/cshopping/get_mini_cart",
+			function(data){
+				var rs=$.parseJSON(data);
+				$("#cart_list").text("");
+				var total=0;
+				for(var product in rs){
+					$("#cart_list").append('<li><img src="'+rs[product].p_images+'"/><span class="width120 mini-span">'+rs[product].p_title+'</span><span class="width50 color-red mini-span">'+rs[product].p_price+'</span><input class="del-bt" type="button" value="x" onclick="removeFromCart(\''+rs[product].p_id+'\')"/></li>');
+					total+=parseFloat(rs[product].p_price);
+				}
+				if(total>0)
+				$("#cart_list").append('<li style="border:none;"><span class="width120 mini-total">合计：<font color="red">￥'+total+'</font></span><a href="/shopping/cart" target="_blank" class="goto-cart-bt"> 去购物车交易</a></li>');
+				else $("#cart_list").append('购物车中还没有商品，赶紧抢购吧！');
+			}
+		);
+	}
+	function removeFromCart(id){
+		$("#cart_list").html("数据加载中，请稍后...");
+		$.post("/cshopping/removeFromCart",
+			{'id':id},
+			function(data){
+				var rs=$.parseJSON(data);
+				if(rs.code) {
+					get_mini_cart();
+				}else alert(rs.message);
+			}
+		);
 	}

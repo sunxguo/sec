@@ -15,33 +15,41 @@
 					<th class="c5">状态</th>
 					<th class="c6">操作</th>
 				</tr>
-				<?php for($i=0;$i<6;$i++):?>
+				<?php foreach($orders as $item):?>
 				<tr class="order-num">
-					<td colspan="6">订单编号：<a href="" class="color-bule">7474741</a></td>
+					<td colspan="6">订单号：<a class="color-bule"><?=$item->o_number?></a></td>
 				</tr>
 				<tr class="orders-info">
 					<td class="c1">
-						<a href="">
-							<img src="" title=""/>
-							<img src="" title=""/>
+						<?php foreach($item->products as $product):?>
+						<a href="/shopping/product?id=<?=$product->p_id?>" target="_blank">
+							<img src="<?php if(unserialize($product->p_images)) echo unserialize($product->p_images)[0];?>" title="<?=$product->p_title?>" alt="<?=$product->p_title?>"/>
 						</a>
+						<?php endforeach;?>
 					</td>
-					<td class="c2"><a>郝贱</a></td>
-					<td class="c3 color-red">￥998</td>
-					<td class="c4">2014-03-26 09:31:52</td>
-					<td class="c5">交易成功</td>
+					<td class="c2"><a href="/user?id=<?=$item->o_purchaser?>" target="_blank"><?=$item->recipient->u_name?></a></td>
+					<td class="c3 color-red">￥<?=$item->o_total?></td>
+					<td class="c4"><?=$item->o_time?></td>
+					<td class="c5 <?=$item->o_status?>"><?=$item->cn_status?></td>
 					<td class="c6">
-						<input type="button" value="查看" class="confirm_bt"/>
-						<input type="button" value="晒单" class="confirm_bt mg_t10"/>
+					<!--	<input type="button" value="查看" class="confirm_bt"/>-->
+					<!--	<input type="button" value="晒单" class="confirm_bt mg_t10"/>-->
+					修改为
+					<select id="status" onchange="modify_status('<?=$item->o_id?>',$(this).val());">
+						<option value="no">--请选择--</option>
+						<option value="confirmed">确认开始交易</option>
+						<option value="trading">交易中</option>
+						<option value="canceled">取消交易</option>
+					</select>
 					</td>
 				</tr>
-				<?php endfor;?>
+				<?php endforeach;?>
 			</table>
 		</div>
 		<div class="uc-footer mg_t20">
-			1/2页
-			<a class="no">上一页</a>
-			<a class="page_bt">上一页</a>
+			<?=$show_page?>页
+			<a href="<?=$pre_link?>" class="<?=($pre_link=="javascript:void();")?"no":"page_bt"?>">上一页</a>
+			<a href="<?=$next_link?>" class="<?=($next_link=="javascript:void();")?"no":"page_bt"?>">下一页</a>
 		</div>
 	</div>
 </div>

@@ -1,0 +1,11 @@
+.info{
+	width: 1190px;
+	min-height: 406px;
+	position: relative; 
+	overflow:hidden;
+	margin-top:19.5px;
+}
+.info-main {
+width: 940px;
+margin: 50px auto;
+}

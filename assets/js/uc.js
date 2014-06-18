@@ -92,6 +92,7 @@ function register(){
 }
 //jquery验证手机号码 
 function checkSubmitMobile(){ 
+	var result=false;
     if($("#phoneNum").val()==""){ 
 		$("#phoneMsg").html("<font color='red'>× 手机号码不能为空！</font>"); 
 		$("#phoneNum").focus(); 
@@ -103,8 +104,22 @@ function checkSubmitMobile(){
 		$("#phoneNum").focus(); 
 		return false; 
     } 
-	$("#phoneMsg").html("<font color='green'>√ 正确</font>"); 
-    return true; 
+	$.post("/cuc/is_exist_phone",
+			{phone:$("#phoneNum").val()},
+			function(data){
+				var rs=$.parseJSON(data);
+				if(rs.code) {
+					$("#phoneMsg").html("<font color='red'>× 该号码已被注册</font>");
+					result=false;
+				}
+				else {
+					$("#phoneMsg").html("<font color='green'>√ 正确</font>"); 
+					result=true;
+				}
+			}
+	);
+//	$("#phoneMsg").html("<font color='green'>√ 正确</font>"); 
+    return result; 
 }
 //发送验证码
 function send_code(){
@@ -187,4 +202,51 @@ function checkSubmitMobileCode(){
 					}
      });
 	return result;
+}
+function modify_status(id,status){
+	if(confirm("确定"+status+"？")){
+		$.post("/cuc/modify_status_order",
+			{'id':id,'status':status},
+			function(data){
+				var rs=$.parseJSON(data);
+				if(rs.code) {
+					alert(rs.message);
+					window.location.reload();
+				}else alert(rs.message);
+			}
+		);
+	}
+}
+//查看消息
+function check_detail(id){
+	$("#msg-title").text($("#msg-title"+id).text());
+	$("#msg-from-user").text($("#msg-from-user"+id).text());
+	$("#msg-to-user").text($("#msg-to-user"+id).text());
+	$("#msg-content").text($("#msg-content"+id).text());
+	$("#msg-content").html($("#msg-content"+id).html());
+	$("#msg-id").val(id);
+	$("#msg_detail").show();
+	$("#uc_main").hide();
+	$.post("/cuc/modify_status_msg",
+		{'id':id,'status':"checked"},
+		function(data){
+		}
+	);
+}
+function del_detail_msg(id){
+	del_msg($("#msg-id").val());
+}
+function del_msg(id){
+	if(confirm("确定删除？")){
+		$.post("/cuc/delete_msg",
+			{'id':id},
+			function(data){
+				var rs=$.parseJSON(data);
+				if(rs.code) {
+					alert(rs.message);
+					window.location.reload();
+				}else alert(rs.message);
+			}
+		);
+	}
 }

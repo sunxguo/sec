@@ -7,11 +7,11 @@
 		</div>
 		<div class="uc-body clearfix">
 			<div class="avatar">
-				<img src="/assets/img/uc/avatar.png"/>
+				<img src="<?=$info->u_img?>"/>
 			</div>
 			<div class="message">
 				<div class="welcome">
-					<span class="username"><a href=""><?=$name?></a></span>欢迎您！
+					<span class="username"><a href="/uc/info"><?=$info->u_name?></a></span>欢迎您！
 				</div>
 				<ul class="clearfix">
 					<li>订单提醒：<a href="/">交易中（0）</a></li>

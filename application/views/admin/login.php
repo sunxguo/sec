@@ -1,24 +1,36 @@
-<div class="login-panel" id="login-panel">
-	<div class="login-head">
-		<h3>登录与注册</h3>
-		<a class="close" onclick="hideLogin()">x</a>
-	</div>
-	<div class="login-main">
-		<dl>
-			<dd>
-				<input type="text" id="miniLogin_username" name="miniLogin_username" placeholder="请输入邮箱/手机号码" data-rule="(^[\w.\-]+@(?:[a-z0-9]+(?:-[a-z0-9]+)*\.)+[a-z]{2,3}$)|(^1[3|4|5|8]\d{9}$)|(^\d{3,}$)|(^\++\d{2,})" autocomplete="off"/><span class="msgTips"></span>
-			</dd>
-			<dd>
-				<input type="password" id="miniLogin_pwd" name="miniLogin_pwd" placeholder="请输入密码" data-rule="" /><span class="msgTips"></span>
-			</dd>
-		</dl>
-		<div class="miniLogin_auto cfl clearfix">
-			<label for="auto"><input type="checkbox" id="auto" name="auto" value="true" /><span>自动登录</span></label>
-			<p><a href="javascript:;" onclick="window.open('')">忘记密码？</a> </p>
+<?php
+	@session_start(); 
+	$this->load->helper("base");
+?>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><?=$title?></title>
+	<meta  name="description"  content="<?=$description?>">
+	<meta  name="keywords"  content="<?=$keywords?>">
+	<link  rel="shortcut icon"  href="/assets/img/ico/favicon.ico"  type="image/x-icon">
+	<link  rel="icon"  href="/assets/img/ico/favicon.ico"  type="image/x-icon">
+	<link rel="stylesheet" href="/assets/css/base.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/header.css" type="text/css">
+	<link rel="stylesheet" href="/assets/css/alogin.css" type="text/css">
+    <script src="/assets/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+	<script src="/assets/js/tools.js" type="text/javascript"></script>
+</head>
+<body>
+	<div class="modal-backdrop" id="backdrop"></div>
+    <div class="header">
+		<div class="top clearfix">
+			<div class="logo"><a href="/"><img src="/assets/img/logo.png"/></a></div>
+			<div></div>
 		</div>
-		<div class="miniLogin_btn cfl clearfix">
-			<input type="submit" class="no_bg" value="立即登录" onclick="login()"/>
-			<a href="/uc/register" target="_blank">注册</a>
-		</div>
+    </div>
+	<div class="main clearfix">
+		<form action="/cadmin/adminLogin" method="post">
+			<input type="text" name="username" placeholder="用户名"/>
+			<input type="password" name="pwd" placeholder="密码"/>
+			<input type="submit" value="登录" class="bt"/>
+		</form>
 	</div>
-</div>
+</body>
+</html>

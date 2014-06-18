@@ -22,24 +22,26 @@
 		<div class="top clearfix">
 			<div class="logo"><a href="/"><img src="/assets/img/logo.png"/></a></div>
 			<div class="search">
-				<form action="" method="get">
-					<input type="text" name="keyword" class="search_txt" autocomplete="off" placeholder="搜索更快~">
+				<form action="/shopping" method="get">
+					<input type="text" name="name" class="search_txt" autocomplete="off" placeholder="搜索更快~" value="<?=isset($_GET['name'])?$_GET['name']:""?>">
 					<input type="submit" value="" class="search_bt icon-common">
 					<label class="hot">
-						<a href="">小米手机3</a>
-						<a href="">小米手机3</a>
-						<a href="">小米手机3</a>
-						<a href="">小米手机3</a>
+						<a href="/shopping?name=手机">手机</a>
+						<a href="/shopping?name=自行车">自行车</a>
+						<a href="/shopping?name=考研">考研书</a>
+						<a href="/shopping?name=电脑">电脑</a>
+						<a href="/shopping?cat=8&scat=34">球类</a>
 					</label>
 				</form>
 			</div>
-			<div class="miniCart" id="miniCart">
-				<div>
+			<div class="" id="miniCart">
+				<a id="miniCartBt" href="/shopping/cart" target="_blank" class="miniCart">
 					<span class="cart-bt icon-common"></span>
 					购物车
-				</div>
+				</a>
 				<div class="mini-cart-list" id="miniCartList">
-					<div class="loading">数据加载中，请稍后...</div>
+					<ul class="loading" id="cart_list">
+					</ul>
 				</div>
 			</div>
 			<div class="menu">
@@ -87,15 +89,16 @@
 			<div class="all-cat"><a>全部商品分类</a></div>
 			<div class="links">
 				<ul>
-					<li><a>首页</a></li>
-					<li><a>图书</a></li>
-					<li><a>电脑</a></li>
-					<li><a>生活</a></li>
+					<li><a href="/">首页</a></li>
+					<li><a href="/shopping?cat=1">图书</a></li>
+					<li><a href="/shopping?cat=2">电脑</a></li>
+					<li><a href="/shopping?cat=6">生活</a></li>
 				</ul>
 			</div>
 		</div>
 		<?php endif;?>
     </div>
 	<div class="main clearfix">
-		<?php if($showSideCat) require("category.php");?>
+		<?php if(isset($showSideCat) && $showSideCat) require("category.php");?>
+		<?php if(isset($showAdminSideCat) && $showAdminSideCat) require("admin/sidenavi.php");?>
 		<?php //require("product-side-ad.php"); ?>

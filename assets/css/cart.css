@@ -95,3 +95,29 @@
 	text-overflow:ellipsis; 
 	white-space:nowrap;
 }
+.cart .products-lists .address{
+	width:120px;
+	height:20px;
+	line-height:20px;
+	float:right;
+	border:1px solid #00BFFF;
+	margin-top:10px;
+	padding:5px;
+	-moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}
+.cart .products-lists .note{
+	width:320px;
+	height:20px;
+	line-height:20px;
+	resize: none;
+	font-family:Microsoft Yahei;
+	margin-top:10px;
+	border:1px solid #00BFFF;
+	margin-left:10px;
+	padding:5px;
+	-moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}

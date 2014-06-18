@@ -37,6 +37,7 @@
 	float:left;
 	height:30px;
 	line-height:30px;
+	margin-left:5px;
 }
 .shopping .filter .filter-body .filter-item dl dd a{
 	color:#dd4250;
@@ -51,9 +52,14 @@
 	border-radius: 4px 4px 4px 4px;
 }
 .shopping .filter .filter-body .filter-item dl dd a:hover{
-	background-color:#dd4250;
+	background-color:#FF9999;
 	color:white;
 	cursor:pointer;
+}
+.shopping .filter .filter-body .filter-item dl dd  .check{
+	background-color:#dd4250;
+	color:white;
+	cursor:arrow;
 }
 .shopping .products-header{
 	border:1px solid #CCC;
@@ -80,6 +86,11 @@
 }
 .shopping .products-header .order ul .time{
 	width:80px;
+}
+.shopping .products-header .order ul .check{
+	background-color:#dd4250;
+	color:white;
+	cursor:arrow;
 }
 .shopping .products-header .order ul li{
 	float:left;

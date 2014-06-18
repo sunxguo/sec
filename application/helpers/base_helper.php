@@ -37,6 +37,15 @@ function checkLogin(){
 		return false;
 	}
 }
+/**
+ * 检查管理员用户登录状态
+ * @return boolean 是否已登录
+ */
+function checkAdminLogin(){
+	if(isset($_SESSION['name']) && isset($_SESSION['type']) && $_SESSION['type']=='admin'){
+		return true;
+	}else return false;
+}
 
 /**
  * 返回错误信息数组
@@ -196,12 +205,34 @@ function httpDelete($url,  $header = array(), $ssl = USE_HTTPS) {
 	curl_close($ch);
 	return $html;
 }
-	function _get_page_info($page,$amount,$page_items){
-		$info['page_amount']=ceil($amount/$page_items);
-		$info['limit']=$page_items;
-		$info['offset']=($page-1)*$page_items;
-		return $info;
+function _get_page_info($page,$amount,$page_items){
+	$info['page_amount']=ceil($amount/$page_items);
+	$info['limit']=$page_items;
+	$info['offset']=($page-1)*$page_items;
+	return $info;
+}
+function _convert_order_status($status){
+//"new"->"confirmed"->"trading"->"compelete"->"canceled"
+	$cn_status="";
+	switch($status){
+		case "new":
+		$cn_status="提交订单";
+		break;
+		case "confirmed":
+		$cn_status="确认订单";
+		break;
+		case "trading":
+		$cn_status="交易中";
+		break;
+		case "complete":
+		$cn_status="交易成功";
+		break;
+		case "canceled":
+		$cn_status="交易取消";
+		break;
 	}
+	return $cn_status;
+}
 
 ?>
 

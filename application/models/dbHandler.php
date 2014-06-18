@@ -7,8 +7,8 @@ class DbHandler extends CI_Model{
 		$this->load->database();
 	}
 
-	 public function insertdata($table,$data)
-	 {
+	public function insertdata($table,$data)
+	{
         $this->db->insert($table, $data);
         return $this->db->affected_rows();
 	 }
@@ -26,6 +26,14 @@ class DbHandler extends CI_Model{
 	 public function selectdata($table,$where,$content,$limit,$offset,$ordercol,$orderby)
 	 {
 		$this->db->where($where,$content);
+		$this->db->limit($limit,$offset);
+		$this->db->from($table);
+		$this->db->order_by($ordercol,$orderby);
+	 	return $query = $this->db->get()->result();
+	 }
+	 public function selectdata_multi($table,$where,$limit,$offset,$ordercol,$orderby)
+	 {
+		$this->db->where($where);
 		$this->db->limit($limit,$offset);
 		$this->db->from($table);
 		$this->db->order_by($ordercol,$orderby);
@@ -67,6 +75,12 @@ class DbHandler extends CI_Model{
 		$this->db->from($table);
 		return $total = $this->db->count_all_results();
 	 }
+	 public function amount_data_multi($table,$where)
+	 {
+	 	$this->db->where($where);
+		$this->db->from($table);
+		return $total = $this->db->count_all_results();
+	 }
 	 public function amount_data_no_condition($table)
 	 {
 		return $total = $this->db->count_all($table);
@@ -92,6 +106,33 @@ class DbHandler extends CI_Model{
 		foreach($condition as $col=>$value){
 			$this->db->where($col,$value);
 		}
+		$this->db->limit($limit,$offset);
+		$this->db->from($table);
+		$this->db->order_by($ordercol,$orderby);
+	 	return $query = $this->db->get()->result();
+	 }
+	 //
+	public function amount_products_data_by_orlike($table,$name,$like,$condition)
+	{
+		if(count($like)>0){
+			foreach($like as $value){
+				$this->db->like("p_property",$value);
+			}
+		}
+		if(count($name)!=0) $this->db->like($name);
+		$this->db->where($condition);
+		$this->db->from($table);
+		return $total = $this->db->count_all_results();
+	 }
+	public function select_products_data_by_orlike($table,$name,$like,$condition,$limit,$offset,$ordercol,$orderby)
+	{
+		if(count($like)>0){
+			foreach($like as $value){
+				if($value!="") $this->db->like("p_property",$value);
+			}
+		}
+		if(count($name)!=0) $this->db->like($name);
+		$this->db->where($condition);
 		$this->db->limit($limit,$offset);
 		$this->db->from($table);
 		$this->db->order_by($ordercol,$orderby);

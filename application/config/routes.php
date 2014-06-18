@@ -51,14 +51,27 @@ $route['uc'] = "cuc";
 $route['uc/register'] = "cuc/register";
 $route['uc/purchaser_orders'] = "cuc/purchaser_orders";
 $route['uc/seller_orders'] = "cuc/seller_orders";
+$route['uc/order'] = "cuc/order";
+$route['uc/user'] = "cuc/user";
 $route['uc/products'] = "cuc/products";
 $route['uc/publish'] = "cuc/publish";
 $route['uc/info'] = "cuc/info";
 $route['uc/messages'] = "cuc/messages";
+
+/**
+ * 团队信息
+ */
+$route['info'] = "cinfo";
+$route['info/about'] = "cinfo/about";
 /**
  * 后台管理
  */
-$route['admin'] = "cadmin";
+$route['admin'] = "cadmin/login";
+$route['admin/login'] = "cadmin/login";
+$route['admin/index'] = "cadmin/index";
+$route['admin/users'] = "cadmin/users";
+$route['admin/cats'] = "cadmin/cats";
+$route['admin/addCat'] = "cadmin/addCat";
  
 $route['default_controller'] = "home";
 $route['404_override'] = '';
