@@ -92,7 +92,7 @@ function register(){
 }
 //jquery验证手机号码 
 function checkSubmitMobile(){ 
-	var result=false;
+	var result=true;
     if($("#phoneNum").val()==""){ 
 		$("#phoneMsg").html("<font color='red'>× 手机号码不能为空！</font>"); 
 		$("#phoneNum").focus(); 
@@ -134,6 +134,8 @@ function send_code(){
 					else $("#phoneMsg").html("<font color='red'>× "+rs.message+"</font>");
 				}
 		);
+	}else{
+		alert("ok");
 	}
 }
 //jquery验证邮箱 
