@@ -379,6 +379,9 @@ color: rgb(252, 37, 45);
 	margin:10px 0 0 50px;
 	width:500px;
 }
+.uc .uc-info .info .nick li{
+	margin-top:5px;
+}
 .uc .uc-info .info .nick input{
 	width:200px;
 	height:25px;
@@ -386,9 +389,16 @@ color: rgb(252, 37, 45);
 	font-size:16px;
 	border:#e1e1e1 1px solid;
 	padding:5px;
-	-moz-border-radius: 3px;      /* Gecko browsers */
-    -webkit-border-radius: 3px;   /* Webkit browsers */
-    border-radius:3px;            /* W3C syntax */
+	-moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}
+.uc .uc-info .info .nick .label{
+	display:inline-block;
+	width:100px;
+	height:25px;
+	line-height:25px;
+	font-size:16px;
 }
 .uc .uc-info .info .safe ul{
 	margin-top:20px;

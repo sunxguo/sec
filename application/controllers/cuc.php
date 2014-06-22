@@ -451,13 +451,22 @@ class Cuc extends CI_Controller {
 		}
 	}
 	public function new_info(){
+		$user_data=$this->dbHandler->selectPartData("users","u_email",$_POST['email']);
+		if(count($user_data)>0 && $user_data[0]->u_id!=$_SESSION['userid']){
+			$this->load->view('redirect',array("message"=>"该email已注册"));
+			return false;
+		}
 		$img_result=upload("image");
 		if($img_result["code"]) $data["u_img"]=$img_result["message"];
 		$data["u_name"]=$_POST['username'];
+		$data["u_qq"]=$_POST['qq'];
+		$data["u_email"]=$_POST['email'];
 		$result=$this->dbHandler->updatedata("users",$data,"u_id",$_SESSION['userid']);
 		if($result==0)  $this->load->view('redirect',array("message"=>"修改失败"));
 		else{
 			$_SESSION['username']=$_POST['username'];
+			$_SESSION['qq']=$_POST['qq'];
+			$_SESSION['email']=$_POST['email'];
 			$this->load->view('redirect',array("message"=>"修改成功","url"=>"/uc/info"));
 		}
 	}

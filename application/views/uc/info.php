@@ -6,7 +6,7 @@
 			<h3>我的资料</h3>
 		</div>
 		<div class="uc-info clearfix">
-			<form method="post" action="/cuc/new_info" enctype="multipart/form-data">
+			<form  onSubmit="return check_modify_form()"  method="post" action="/cuc/new_info" enctype="multipart/form-data">
 				<div class="wraper clearfix">
 					<div class="avatar" id="avatar">
 						<img src="<?=$info->u_img?>"/>
@@ -16,9 +16,23 @@
 						<input type="file" style="display:none;" accept="image/*" name="image" id="avatar_img" >
 					</div>
 					<div class="info">
-						<div class="nick">
-							<span class="username"><input name="username" type="text" value="<?=$info->u_name?>"></a></span>
-						</div>
+						<ul class="nick">
+							<li>
+								<span class="label">昵称：</span>
+								<input name="username" type="text" value="<?=$info->u_name?>">
+								
+							</li>
+							<li>
+								<span class="label">QQ：</span>
+								<input name="qq" type="text" value="<?=$info->u_qq?>" placeholder="未设置qq号">
+								
+							</li>
+							<li>
+								<span class="label">Email：</span>
+								<input name="email" id="emailString" type="email" value="<?=$info->u_email?>" placeholder="未设置Email">
+								<span id="emailMsg"></span>
+							</li>
+						</ul>
 						<div class="safe">
 						<?php if(isset($_SESSION["phone"]) && $_SESSION["phone"]!=0 && $_SESSION["phone"]!=""){?>
 							<ul id="old_phone">
@@ -105,6 +119,21 @@ function bind_phone(){
 		return true;
 	}
 }
+//jquery验证邮箱 
+function checkSubmitEmail(){
+    if($("#emailString").val()==""){
+		$("#emailMsg").html("<font color='red'>× 邮箱地址不能为空！</font>"); 
+		$("#emailString").focus(); 
+		return false; 
+    } 
+    if(!$("#emailString").val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)){ 
+		$("#emailMsg").html("<font color='red'>× 邮箱格式不正确！</font>"); 
+		$("#emailString").focus(); 
+		return false; 
+	}
+	$("#emailMsg").html("<font color='green'>√ 正确</font>"); 
+    return true; 
+}
 //jquery验证手机号码 
 function checkSubmitMobile(){ 
 	var result=false;
@@ -178,5 +207,8 @@ function checkSubmitMobileCode(){
 					}
      });
 	return result;
+}
+function check_modify_form(){
+	return checkSubmitEmail();
 }
 </script>
