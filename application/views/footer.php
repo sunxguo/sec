@@ -16,5 +16,10 @@
 				<a target="_blank" title="备案信息" href="http://www.miitbeian.gov.cn/">晋ICP备13006536号</a>
 			</div>
 		</div>
+	<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3ece913b8599ee4d773e33b508bee306' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
 	</body>
 </html>
