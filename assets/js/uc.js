@@ -104,7 +104,7 @@ function checkSubmitMobile(){
 		$("#phoneNum").focus(); 
 		return false; 
     } 
-	$.post("/cuc/is_exist_phone",
+/*	$.post("/cuc/is_exist_phone",
 			{phone:$("#phoneNum").val()},
 			function(data){
 				var rs=$.parseJSON(data);
@@ -118,6 +118,24 @@ function checkSubmitMobile(){
 				}
 			}
 	);
+	*/
+	$.ajax({
+          type : "post",  
+          url : "/cuc/is_exist_phone",  
+          data : "phone="+$("#phoneNum").val(),  
+          async : false,  
+          success : function(data){
+						var rs=$.parseJSON(data);
+						if(rs.code) {
+							$("#phoneMsg").html("<font color='red'>× 该号码已被注册</font>");
+							result=false;
+						}
+						else {
+							$("#phoneMsg").html("<font color='green'>√ 正确</font>"); 
+							result=true;
+						}
+					}
+     });
 //	$("#phoneMsg").html("<font color='green'>√ 正确</font>"); 
     return result; 
 }

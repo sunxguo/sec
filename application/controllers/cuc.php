@@ -572,7 +572,7 @@ class Cuc extends CI_Controller {
 		echo json_encode(array("code"=>true, "message"=>"验证成功"));
 	}
 	public function sendsms($phone,$code){
-		$text="验证码是".$code."【学城网】";
+		$text="欢迎使用学城网！验证码是".$code."";
 		$url="http://utf8.sms.webchinese.cn/?Uid=MonkeyKing&Key=916befe64d458c759a3a&smsMob=".$phone."&smsText=".$text;
 		if(function_exists('file_get_contents')){
 			$file_contents = file_get_contents($url);

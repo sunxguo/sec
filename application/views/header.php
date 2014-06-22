@@ -47,7 +47,7 @@
 			<div class="menu">
 				<ul>
 					<li><a href="http://zl.xuechengw.com" target="_blank">学城资料</a></li>
-					
+					<li><a href="/uc/publish">【发布商品】</a></li>
 					<li>
 					<?php if(!checkLogin()){?>
 						<a onclick="showLogin()">登录</a> / 
