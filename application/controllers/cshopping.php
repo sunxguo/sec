@@ -270,7 +270,8 @@ class Cshopping extends CI_Controller {
 		$products=array();
 		foreach($cart as $key=>$item){
 			$product=$this->get_product($key);
-			@$product->p_images=unserialize($product->p_images);
+			@$imgs=unserialize($product->p_images);
+			@$product->p_images=$imgs[0];
 			array_push($products,$product);
 		}
 		echo json_encode($products);
