@@ -72,10 +72,15 @@ $(document).ready(function(){
 		}
 	}
 	function login(){
+		$("#login_bt").val("正在登录...");
 		var url = arguments[0] ? arguments[0] : "self";
 		if($("#miniLogin_username").val() && $("#miniLogin_pwd").val()){
 			var type=check_type($("#miniLogin_username").val());
-			if(!type){ alert("请使用邮箱或手机登录！");return;}
+			if(!type){
+				$("#login_bt").val("立即登录");
+				alert("请使用邮箱或手机登录！");
+				return;
+			}
 			$.post("/cuc/login_user",
 					{
 						type:type,
@@ -85,12 +90,20 @@ $(document).ready(function(){
 					},
 					function(data){
 						var rs=$.parseJSON(data);
-						if(rs.code) {if(url=="self")window.location.reload();else window.location=url;}
-						else{alert(rs.message);}
+						if(rs.code) {
+							$("#login_bt").val("登录成功，正在刷新...");
+							if(url=="self")window.location.reload();
+							else window.location=url;
+						}
+						else{
+							$("#login_bt").val("立即登录");
+							alert(rs.message);
+						}
 					}
 			);
 			return true;
 		}else{
+			$("#login_bt").val("立即登录");
 			alert("请输入用户名和密码");
 		}
 	}

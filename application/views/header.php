@@ -76,7 +76,7 @@
 								<p style="display:none;"><a href="javascript:;" onclick="window.open('')">忘记密码？</a> </p>
 							</div>
 							<div class="miniLogin_btn cfl clearfix">
-								<input type="submit" class="no_bg" value="立即登录" onclick="login()"/>
+								<input type="submit" id="login_bt" class="no_bg" value="立即登录" onclick="login()"/>
 								<a href="/uc/register" target="_blank">注册</a>
 							</div>
 						</div>
