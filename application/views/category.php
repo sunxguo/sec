@@ -20,5 +20,5 @@
 		</li>
 	<?php endforeach;?>
 	</ul>
-	<img src="">
+	<img src="/assets/img/index/side.jpg" width="230px" height="78px">
 </div>
