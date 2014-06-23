@@ -625,8 +625,10 @@ class Cuc extends CI_Controller {
 		$merchant=$this->dbHandler->selectPartData('users','u_id',$id);
 		return  count($merchant)>0?$merchant[0]:array();
 	}
-	public function traverse() {
-		$path="/var/www/xc/uploads/image";
+	public function tt(){
+		$this->traverse("/var/www/xc/uploads/image");
+	}
+	public function traverse($path) {
 		$current_dir = opendir($path);    //opendir()返回一个目录句柄,失败返回false
 		while(($file = readdir($current_dir)) !== false) {    //readdir()返回打开目录句柄中的一个条目
 			$sub_dir = $path . DIRECTORY_SEPARATOR . $file;    //构建子目录路径
@@ -634,9 +636,16 @@ class Cuc extends CI_Controller {
 				continue;
 			} else if(is_dir($sub_dir)) {    //如果是目录,进行递归
 				echo 'Directory ' . $file . ':<br>';
-				traverse($sub_dir);
+				$this->traverse($sub_dir);
 			} else {    //如果是文件,直接输出
-				echo 'File in Directory ' . $path . ': ' . $file . '<br>';
+				echo 'File in Directory ' . $sub_dir . '<br>';
+				
+				//获得文件扩展名
+				$temp_arr = explode(".", $file);
+				$file_ext = array_pop($temp_arr);
+				$file_ext = trim($file_ext);
+				$file_ext = strtolower($file_ext);
+				resizeImage($sub_dir,"500","500",$sub_dir,$file_ext);
 			}
 		}
 	}

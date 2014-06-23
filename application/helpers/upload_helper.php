@@ -116,61 +116,104 @@ function upload($upload_file_name="files"){
 		return array("code"=>true,"message"=>$file_url);
 	}
 }
-function resizeImage($src_imagename,$maxwidth,$maxheight,$savename,$filetype)
+function resizeImage($src_imagename,$maxwidth,$maxheight,$savename,$file_type)
 {
-    $im=imagecreatefromjpeg($src_imagename);
-    $current_width = imagesx($im);
-    $current_height = imagesy($im);
- 
-    if(($maxwidth && $current_width > $maxwidth) || ($maxheight && $current_height > $maxheight))
-    {
-        if($maxwidth && $current_width>$maxwidth)
-        {
-            $widthratio = $maxwidth/$current_width;
-            $resizewidth_tag = true;
-        }
- 
-        if($maxheight && $current_height>$maxheight)
-        {
-            $heightratio = $maxheight/$current_height;
-            $resizeheight_tag = true;
-        }
- 
-        if($resizewidth_tag && $resizeheight_tag)
-        {
-            if($widthratio<$heightratio)
-                $ratio = $widthratio;
-            else
-                $ratio = $heightratio;
-        }
- 
-        if($resizewidth_tag && !$resizeheight_tag)
-            $ratio = $widthratio;
-        if($resizeheight_tag && !$resizewidth_tag)
-            $ratio = $heightratio;
- 
-        $newwidth = $current_width * $ratio;
-        $newheight = $current_height * $ratio;
- 
-        if(function_exists("imagecopyresampled"))
-        {
-            $newim = imagecreatetruecolor($newwidth,$newheight);
-               imagecopyresampled($newim,$im,0,0,0,0,$newwidth,$newheight,$current_width,$current_height);
-        }
-        else
-        {
-            $newim = imagecreate($newwidth,$newheight);
-           imagecopyresized($newim,$im,0,0,0,0,$newwidth,$newheight,$current_width,$current_height);
-        }
- 
-        $savename = $savename;
-        imagejpeg($newim,$savename);
-        imagedestroy($newim);
-    }
-    else
-    {
-        $savename = $savename;
-        imagejpeg($im,$savename);
-    }
+    $im=createimg($src_imagename,$file_type);
+	if($im){
+		$current_width = imagesx($im);
+		$current_height = imagesy($im);
+		$resizewidth_tag=false;
+		$resizeheight_tag=false;
+		$widthratio=1;
+		$heightratio=1;
+		$ratio =1;
+		if(($maxwidth && $current_width > $maxwidth) || ($maxheight && $current_height > $maxheight))
+		{
+			if($maxwidth && $current_width>$maxwidth)
+			{
+				$widthratio = $maxwidth/$current_width;
+				$resizewidth_tag = true;
+			}
+	 
+			if($maxheight && $current_height>$maxheight)
+			{
+				$heightratio = $maxheight/$current_height;
+				$resizeheight_tag = true;
+			}
+	 
+			if($resizewidth_tag && $resizeheight_tag)
+			{
+				if($widthratio<$heightratio)
+					$ratio = $widthratio;
+				else
+					$ratio = $heightratio;
+			}
+	 
+			if($resizewidth_tag && !$resizeheight_tag)
+				$ratio = $widthratio;
+			if($resizeheight_tag && !$resizewidth_tag)
+				$ratio = $heightratio;
+	 
+			$newwidth = $current_width * $ratio;
+			$newheight = $current_height * $ratio;
+	 
+			if(function_exists("imagecopyresampled"))
+			{
+				$newim = imagecreatetruecolor($newwidth,$newheight);
+				   imagecopyresampled($newim,$im,0,0,0,0,$newwidth,$newheight,$current_width,$current_height);
+			}
+			else
+			{
+				$newim = imagecreate($newwidth,$newheight);
+			   imagecopyresized($newim,$im,0,0,0,0,$newwidth,$newheight,$current_width,$current_height);
+			}
+			showimg($newim,$savename,$file_type);
+			imagedestroy($newim);
+		}
+		else
+		{
+			imagejpeg($im,$savename);
+		}
+	}
 }
+function createimg($filename,$filetype){
+	$im="";
+	switch($filetype){ //取得背景图片的格式
+		case "jpg":
+			@$im=imagecreatefromjpeg($filename);
+			break;
+		case "png":
+			@$im=imagecreatefrompng($filename);
+			break;
+		case "gif":
+			@$im=imagecreatefromgif($filename);
+			break;
+		case "bmp":
+			@$im=imagecreatefromwbmp($filename);
+			break;
+		default:
+			return false;            //未知的文件格式
+	}
+	return $im;
+}
+function showimg($newim,$savename,$filetype){
+	switch($filetype){ //取得背景图片的格式
+		case "jpg":
+			imagejpeg($newim,$savename);
+			break;
+		case "png":
+			imagepng($newim,$savename);
+			break;
+		case "gif":
+			imagegif($newim,$savename);
+			break;
+		case "bmp":
+			imagewbmp($newim,$savename);
+			break;
+		default:
+			imagejpeg($newim,$savename);
+			break;
+	}
+}
+
 ?>
