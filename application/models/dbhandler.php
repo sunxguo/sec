@@ -39,6 +39,14 @@ class DbHandler extends CI_Model{
 		$this->db->order_by($ordercol,$orderby);
 	 	return $query = $this->db->get()->result();
 	 }
+	 public function selectdata_multi_or($table,$where,$limit,$offset,$ordercol,$orderby)
+	 {
+		$this->db->or_where($where);
+		$this->db->limit($limit,$offset);
+		$this->db->from($table);
+		$this->db->order_by($ordercol,$orderby);
+	 	return $query = $this->db->get()->result();
+	 }
 	  public function selectdata_no_condition($table,$limit,$offset,$ordercol,$orderby)
 	 {
 		$this->db->limit($limit,$offset);
@@ -84,6 +92,12 @@ class DbHandler extends CI_Model{
 	 public function amount_data_no_condition($table)
 	 {
 		return $total = $this->db->count_all($table);
+	 }
+	 public function amount_data_multi_or($table,$where)
+	 {
+	 	$this->db->or_where($where);
+		$this->db->from($table);
+		return $total = $this->db->count_all_results();
 	 }
 	public function amount_data_by_like($table,$like,$condition)
 	 {

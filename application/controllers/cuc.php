@@ -213,10 +213,10 @@ class Cuc extends CI_Controller {
 			return;
 		}
 		$page=isset($_GET['page'])?$_GET['page']:1;
-		$amount=$this->dbHandler->amount_data_multi('messages',array('msg_from_uid'=>$_SESSION['userid'],'msg_to_uid'=>$_SESSION['userid']));
+		$amount=$this->dbHandler->amount_data_multi_or('messages',array('msg_from_uid'=>$_SESSION['userid'],'msg_to_uid'=>$_SESSION['userid']));
 		$page_info=_get_page_info($page,$amount,10);
 		$page_amount=$page_info["page_amount"];
-		$messages=$this->dbHandler->selectdata_multi('messages',array('msg_from_uid'=>$_SESSION['userid'],'msg_to_uid'=>$_SESSION['userid']),$page_info['limit'],$page_info['offset'],'msg_time','DESC');
+		$messages=$this->dbHandler->selectdata_multi_or('messages',array('msg_from_uid'=>$_SESSION['userid'],'msg_to_uid'=>$_SESSION['userid']),$page_info['limit'],$page_info['offset'],'msg_time','DESC');
 		foreach($messages as $message){
 			$message->msg_from_u=$this->get_user_info($message->msg_from_uid);
 			$message->msg_to_u=$this->get_user_info($message->msg_to_uid);

@@ -163,7 +163,7 @@ $(document).ready(function(){
 				$("#cart_list").text("");
 				var total=0;
 				for(var product in rs){
-					$("#cart_list").append('<li><img src="'+rs[product].p_images+'"/><span class="width120 mini-span">'+rs[product].p_title+'</span><span class="width50 color-red mini-span">'+rs[product].p_price+'</span><input class="del-bt" type="button" value="x" onclick="removeFromCart(\''+rs[product].p_id+'\')"/></li>');
+					$("#cart_list").append('<li><a href="/shopping/product?id='+rs[product].p_id+'" target="_blank"><img src="'+rs[product].p_images+'"/><span class="width120 mini-span">'+rs[product].p_title+'</span></a><span class="width50 color-red mini-span">￥'+rs[product].p_price+'</span><input class="del-bt" type="button" value="x" onclick="removeFromCart(\''+rs[product].p_id+'\')"/></li>');
 					total+=parseFloat(rs[product].p_price);
 				}
 				if(total>0)

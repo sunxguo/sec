@@ -21,8 +21,6 @@
 	<div class="slider" id="slider">
 		<ul>
 			<li><a href="/"><img src="/assets/img/index/1.jpg"/></a></li>
-			<li><a href="/"><img src="/assets/img/index/2.jpg"/></a></li>
-			<li><a href="/"><img src="/assets/img/index/3.jpg"/></a></li>
 		</ul>
 	</div>
 	<a class="bt_nav icon-slides-prev icon-slides" id="previous">Previous</a>
@@ -30,6 +28,7 @@
 </div>
 <div class="products">
 	<?php foreach($products as $floor):?>
+	<?php if(count($floor['products'])>0):?>
 	<div class="floor clearfix">
 		<div class="floor-head">
 			<h3><?=$floor['cat']?></h3>
@@ -56,5 +55,6 @@
 		<?php endforeach;?>
 		</ul>
 	</div>
+	<?php endif;?>
 	<?php endforeach;?>
 </div>

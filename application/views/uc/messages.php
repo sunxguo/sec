@@ -26,7 +26,7 @@
 					<td class="c5"><?=$message->msg_cn_status?></td>
 					<td id="msg-content<?=$message->msg_id?>" style="display:none;"><?=$message->msg_content?></td>
 					<td class="c6">
-						<input type="button" value="查看" class="confirm_bt" onclick="check_detail('<?=$message->msg_id?>')"/>
+						<input type="button" value="查看" class="confirm_bt" onclick="check_detail('<?=$message->msg_id?>','<?=($message->msg_to_uid!=$_SESSION["userid"])?"me":"you"?>')"/>
 						<input type="button" value="删除" class="a_bt_err mg_t10 width100" onclick="del_msg('<?=$message->msg_id?>')"/>
 					</td>
 				</tr>

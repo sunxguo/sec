@@ -39,7 +39,7 @@
 								<div class="color-bule show-short"><?=$product->p_title?></div>
 							</a>
 						</dd>
-						<dd class="merchant"><a href="<?="/users?id=".$merchantItem["merchant_info"]->u_name?>" class="show-short"><?=$merchantItem["merchant_info"]->u_name?></a></dd>
+						<dd class="merchant"><a href="<?="/uc/user?id=".$merchantItem["merchant_info"]->u_id?>" target="_blank" class="show-short"><?=$merchantItem["merchant_info"]->u_name?></a></dd>
 						<dd class="price color-red">￥<?=$product->p_price?></dd>
 						<?php $total+=$product->p_price;?>
 						<dd class="discount"></dd>

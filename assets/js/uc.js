@@ -238,7 +238,7 @@ function modify_status(id,status){
 	}
 }
 //查看消息
-function check_detail(id){
+function check_detail(id,who){
 	$("#msg-title").text($("#msg-title"+id).text());
 	$("#msg-from-user").text($("#msg-from-user"+id).text());
 	$("#msg-to-user").text($("#msg-to-user"+id).text());
@@ -247,6 +247,7 @@ function check_detail(id){
 	$("#msg-id").val(id);
 	$("#msg_detail").show();
 	$("#uc_main").hide();
+	if(who=="me") return true;
 	$.post("/cuc/modify_status_msg",
 		{'id':id,'status':"checked"},
 		function(data){
