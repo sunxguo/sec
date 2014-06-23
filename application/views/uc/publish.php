@@ -16,7 +16,7 @@
 			<form method="post" action="/cuc/publish_product" enctype="multipart/form-data">
 				<div class="images" id="product_images"></div>
 				<input type="hidden" name="img_count" id="img_count" value="0"/>
-				<div class="upload" onclick="add_new_img()">+ 增加物品照片</div><font color="red">*</font><第一张默认为该商品<font color="red">封面</font>,图片大小不要超过<font color="red">1M</font>>
+				<div class="upload" onclick="add_new_img()">+ 增加物品照片</div><font color="red">*</font><第一张默认为该商品<font color="red">封面</font>,图片大小不要超过<font color="red">10M</font>>
 				<div class="product-info">
 					<ul>
 						<li><span>发布人：<font color="red">*</font></span> <?=$_SESSION['name']?></li>

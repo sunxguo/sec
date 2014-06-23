@@ -12,7 +12,7 @@ function upload($upload_file_name="files"){
 		'file' => array('doc', 'docx', 'xls', 'xlsx', 'ppt', 'htm', 'html', 'txt', 'zip', 'rar', 'gz', 'bz2'),
 	);
 	//最大文件大小
-	$max_size = 2000000;
+	$max_size = 10000000;
 
 	$save_path = realpath($save_path) . '/';
 
@@ -169,8 +169,8 @@ function resizeImage($src_imagename,$maxwidth,$maxheight,$savename,$filetype)
     }
     else
     {
-        $savename = $savename.$filetype;
+        $savename = $savename;
         imagejpeg($im,$savename);
-    }          
+    }
 }
 ?>
