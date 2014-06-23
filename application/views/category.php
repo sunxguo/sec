@@ -20,4 +20,5 @@
 		</li>
 	<?php endforeach;?>
 	</ul>
+	<img src="">
 </div>
