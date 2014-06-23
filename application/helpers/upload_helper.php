@@ -112,8 +112,65 @@ function upload($upload_file_name="files"){
 		}
 		@chmod($file_path, 0644);
 		$file_url = $save_url . $new_file_name;
-
+		resizeImage($file_path,500,500,$file_path,$file_ext);
 		return array("code"=>true,"message"=>$file_url);
 	}
+}
+function resizeImage($src_imagename,$maxwidth,$maxheight,$savename,$filetype)
+{
+    $im=imagecreatefromjpeg($src_imagename);
+    $current_width = imagesx($im);
+    $current_height = imagesy($im);
+ 
+    if(($maxwidth && $current_width > $maxwidth) || ($maxheight && $current_height > $maxheight))
+    {
+        if($maxwidth && $current_width>$maxwidth)
+        {
+            $widthratio = $maxwidth/$current_width;
+            $resizewidth_tag = true;
+        }
+ 
+        if($maxheight && $current_height>$maxheight)
+        {
+            $heightratio = $maxheight/$current_height;
+            $resizeheight_tag = true;
+        }
+ 
+        if($resizewidth_tag && $resizeheight_tag)
+        {
+            if($widthratio<$heightratio)
+                $ratio = $widthratio;
+            else
+                $ratio = $heightratio;
+        }
+ 
+        if($resizewidth_tag && !$resizeheight_tag)
+            $ratio = $widthratio;
+        if($resizeheight_tag && !$resizewidth_tag)
+            $ratio = $heightratio;
+ 
+        $newwidth = $current_width * $ratio;
+        $newheight = $current_height * $ratio;
+ 
+        if(function_exists("imagecopyresampled"))
+        {
+            $newim = imagecreatetruecolor($newwidth,$newheight);
+               imagecopyresampled($newim,$im,0,0,0,0,$newwidth,$newheight,$current_width,$current_height);
+        }
+        else
+        {
+            $newim = imagecreate($newwidth,$newheight);
+           imagecopyresized($newim,$im,0,0,0,0,$newwidth,$newheight,$current_width,$current_height);
+        }
+ 
+        $savename = $savename;
+        imagejpeg($newim,$savename);
+        imagedestroy($newim);
+    }
+    else
+    {
+        $savename = $savename.$filetype;
+        imagejpeg($im,$savename);
+    }          
 }
 ?>
