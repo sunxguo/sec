@@ -39,7 +39,7 @@
 								<li>已绑定手机号：<?=$_SESSION["phone"]?>&nbsp;&nbsp;<input type="button" value="修改" onclick="bind_new_phone()" class="input-bt radius3"/></li>
 							</ul>
 							<ul style="display:none;" id="bind_new_phone">
-								<li>绑定手机号</li>
+								<li>更改手机号</li>
 								<li>
 									①&nbsp;&nbsp;<input type="text" id="phoneNum" placeholder="187****0576" class="input-text radius3"/>
 									<input type="button" value="发送验证码" onclick="send_code()" class="input-bt radius3"/>

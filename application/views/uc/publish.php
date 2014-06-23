@@ -48,7 +48,7 @@
 								<option value="7">7成新</option>
 								<option value="6">6成新</option>
 								<option value="5">5成新</option>
-								<option value="5">5成新</option>
+								<option value="4">4成新</option>
 							</select>
 						</li>
 						<li><span>卖价：<font color="red">*</font></span><input name="price" type="number"/>&nbsp;元</li>

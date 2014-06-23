@@ -20,7 +20,7 @@
 <div class="main-slider clearfix">
 	<div class="slider" id="slider">
 		<ul>
-			<li><a href="/"><img src="/assets/img/index/1.jpg"/></a></li>
+			<li><a href="/shopping?cat=1"><img src="/assets/img/index/1.jpg"/></a></li>
 		</ul>
 	</div>
 	<a class="bt_nav icon-slides-prev icon-slides" id="previous">Previous</a>

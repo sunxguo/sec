@@ -37,6 +37,9 @@
 					<?php if(isset($_GET['order'])):?>
 					<input name="order" type="hidden" value="<?=$_GET['order']?>"/>
 					<?php endif;?>
+					<?php if(isset($_GET['only'])):?>
+					<input name="only" type="hidden" value="<?=$_GET['only']?>"/>
+					<?php endif;?>
 					<input name="pro" type="hidden" value="<?=isset($_GET['pro'])?$_GET['pro']:""?>" id="filter_input" />
 				</form>
 			</li>
@@ -51,12 +54,14 @@
 				<li class="price <?=isset($_GET['order']) && $_GET['order']=="price"?"check":""?>" onclick="order('price');">价格 ↑</li>
 				<li class="price <?=isset($_GET['order']) && $_GET['order']=="-price"?"check":""?>" onclick="order('-price');">价格 ↓</li>
 				<li class="time <?=isset($_GET['order']) && $_GET['order']=="time"?"check":""?>" onclick="order('time');">发布时间</li>
+				<li class="time <?=isset($_GET['only']) && $_GET['only']=="yes"?"check":""?>" onclick="only('<?=isset($_GET['only']) && $_GET['only']=="yes"?"check":"no"?>');">只看未交易</li>
 				<input name="name" type="hidden" value="<?=isset($_GET['name'])?$_GET['name']:""?>"/>
 				<input name="page" type="hidden" value="<?=isset($_GET['page'])?$_GET['page']:1?>"/>
 				<input name="cat" type="hidden" value="<?=isset($_GET['cat'])?$_GET['cat']:""?>"/>
 				<input name="scat" type="hidden" value="<?=isset($_GET['scat'])?$_GET['scat']:""?>"/>
 				<input name="pro" type="hidden" value="<?=isset($_GET['pro'])?$_GET['pro']:""?>"/>
-				<input id="order_type_input" name="order" type="hidden"/>
+				<input id="only_input" name="only" type="hidden" value="<?=isset($_GET['only'])?$_GET['only']:""?>"/>
+				<input id="order_type_input" name="order" type="hidden" value="<?=isset($_GET['order'])?$_GET['order']:""?>"/>
 			</form>
 			</ul>
 		</div>
@@ -118,6 +123,11 @@ function addToCart(id){
 }
 function order(type){
 	$("#order_type_input").val(type);
+	$("#order_type").submit();
+}
+function only(is_check){
+	if(is_check!="check") $("#only_input").val("yes");
+	else $("#only_input").val("no");
 	$("#order_type").submit();
 }
 function filter(name){

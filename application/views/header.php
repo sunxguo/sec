@@ -73,7 +73,7 @@
 							</dl>
 							<div class="miniLogin_auto cfl clearfix">
 								<label for="auto"><input type="checkbox" id="auto" name="auto" value="true" /><span>自动登录</span></label>
-								<p><a href="javascript:;" onclick="window.open('')">忘记密码？</a> </p>
+								<p style="display:none;"><a href="javascript:;" onclick="window.open('')">忘记密码？</a> </p>
 							</div>
 							<div class="miniLogin_btn cfl clearfix">
 								<input type="submit" class="no_bg" value="立即登录" onclick="login()"/>

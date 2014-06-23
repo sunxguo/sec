@@ -75,7 +75,7 @@ $(document).ready(function(){
 		var url = arguments[0] ? arguments[0] : "self";
 		if($("#miniLogin_username").val() && $("#miniLogin_pwd").val()){
 			var type=check_type($("#miniLogin_username").val());
-			if(!type){ alert("发生错误！");return;}
+			if(!type){ alert("请使用邮箱或手机登录！");return;}
 			$.post("/cuc/login_user",
 					{
 						type:type,
@@ -98,7 +98,7 @@ $(document).ready(function(){
 		$.get("/cuc/logout",
 					function(data){
 						var rs=$.parseJSON(data);
-						if(rs.code) {window.location.reload();}
+						if(rs.code) {window.location="/";}
 					}
 		);
 	}

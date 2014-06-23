@@ -8,13 +8,15 @@ class Cshopping extends CI_Controller {
 		$this->load->model("dbHandler");
 		$this->load->model("category");
 	}
-	public function get_products_info($name="",$cat="",$scat="",$page=1,$order="time",$pro=""){
+	public function get_products_info($name="",$cat="",$scat="",$page=1,$order="time",$pro="",$only=""){
 		$condition["p_listed"]=true;
 		$db_name=array();
 		if($name!="") $db_name["p_title"]=$name;
 		if($pro!="") $like=explode(',', $pro); else $like=array();
 		if($cat!="") $condition["p_cat"]=$cat;
 		if($scat!="") $condition["p_subCat"]=$scat;
+		if($order=="") $order="time";
+		//if($only=="yes") $condition["p_status"]="0";
 		$amount=$this->dbHandler->amount_products_data_by_orlike('products',$db_name,$like,$condition);
 		$page_info=_get_page_info($page,$amount,PRODUCTS_ITEM_NUM);
 		$order_info=$this->products_by_order($order);
@@ -66,7 +68,8 @@ class Cshopping extends CI_Controller {
 		$scat=isset($_GET['scat'])?$_GET['scat']:"";
 		$order=isset($_GET['order'])?$_GET['order']:"time";
 		$pro=isset($_GET['pro'])?$_GET['pro']:"";
-		$products_info=$this->get_products_info($name,$cat,$scat,$page,$order,$pro);
+		$only=isset($_GET['only'])?$_GET['only']:"";
+		$products_info=$this->get_products_info($name,$cat,$scat,$page,$order,$pro,$only);
 		$page_amount=$products_info["page_amount"];
 		$data=$products_info;
 		$data["page_current"]=$page;
