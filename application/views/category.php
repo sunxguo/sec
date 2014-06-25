@@ -2,7 +2,7 @@
 	<ul>
 	<?php foreach($cat as $item):?>
 		<li class="cat">
-			<a class="cat-tit"><?=$item->cat_name?></a>
+			<a href="/shopping?cat=<?=$item->cat_id?>" class="cat-tit"><?=$item->cat_name?></a>
 			<span class="arrow icon-common"></span>
 			<span class="showPos"><i></i></span>
 			<div class="subCat">

@@ -17,6 +17,7 @@
 			<ul>
 				<li class="title"><h4><?=$product->p_title?></h4></li>
 				<li><b>价格：</b><span class="price">￥<?=$product->p_price?></span></li>
+				<li><b>原价：</b><span class="price">￥<?=$product->p_oriPrice?></span></li>
 				<li><b>成色：</b><span class="new"><?=$product->p_perNew?>成新</span></li>
 				<li><b>卖家：</b><a href="/uc/user?id=<?=$merchant->u_id?>" target="_blank" class="seller"><?=$merchant->u_name?></a></li>
 				<li><b>QQ：</b><a class="seller" target="_blank" href="javascript:window.location='tencent://message/?uin=<?=$merchant->u_qq?>';" class="qq"><?=$merchant->u_qq?></a></li>

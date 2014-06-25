@@ -27,7 +27,7 @@
 						</a>
 						<?php endforeach;?>
 					</td>
-					<td class="c2"><a href="/user?id=<?=$item->o_seller?>" target="_blank"><?=$item->merchant->u_name?></a></td>
+					<td class="c2"><a href="/uc/user?id=<?=$item->o_seller?>" target="_blank"><?=$item->merchant->u_name?></a></td>
 					<td class="c3 color-red">￥<?=$item->o_total?></td>
 					<td class="c4"><?=$item->o_time?></td>
 					<td class="c5 <?=$item->o_status?>"><?=$item->cn_status?></td>
